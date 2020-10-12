@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Hao Liang</title>
+    <link>https://liaanghao.github.io/</link>
+    <description>Recent content on Hao Liang</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sun, 11 Oct 2020 20:46:01 +0900</lastBuildDate><atom:link href="https://liaanghao.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Test</title>
+      <link>https://liaanghao.github.io/blog/test/</link>
+      <pubDate>Sun, 11 Oct 2020 20:46:01 +0900</pubDate>
+      
+      <guid>https://liaanghao.github.io/blog/test/</guid>
+      <description>adsdasds</description>
+    </item>
+    
+    <item>
+      <title>[中文] 梁昊的官网</title>
+      <link>https://liaanghao.github.io/blog/chinese-preview/</link>
+      <pubDate>Sun, 11 Oct 2020 01:37:56 +0800</pubDate>
+      
+      <guid>https://liaanghao.github.io/blog/chinese-preview/</guid>
+      <description>《长恨歌》是中国唐朝诗人白居易的一首长篇叙事诗。 第一段：贵妃受宠爱 汉皇重色思倾国，御宇多年求不得。杨家有女初长成，养在深闺人未识。 天生丽质难</description>
+    </item>
+    
+  </channel>
+</rss>

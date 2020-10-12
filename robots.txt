@@ -1,0 +1,2 @@
+User-agent: *
+Sitemap: https://liaanghao.github.io/sitemap.xml
