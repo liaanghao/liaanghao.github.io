@@ -9,27 +9,6 @@
   </url>
   
   <url>
-    <loc>https://liaanghao.com/</loc>
-    <lastmod>2020-10-11T20:46:01+09:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://liaanghao.com/post/</loc>
-    <lastmod>2020-10-11T20:46:01+09:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://liaanghao.com/post/test/</loc>
-    <lastmod>2020-10-11T20:46:01+09:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
     <loc>https://liaanghao.com/tags/about-me/</loc>
     <lastmod>2020-10-11T17:48:18+09:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -79,6 +58,20 @@
   </url>
   
   <url>
+    <loc>https://liaanghao.com/</loc>
+    <lastmod>2020-10-11T17:48:18+09:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://liaanghao.com/post/</loc>
+    <lastmod>2020-10-11T17:48:18+09:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>https://liaanghao.com/tags/r/</loc>
     <lastmod>2020-10-11T17:48:18+09:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -102,90 +95,6 @@
   <url>
     <loc>https://liaanghao.com/tags/bio/</loc>
     <lastmod>2020-10-01T21:41:52+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://liaanghao.com/post/hidden-post/</loc>
-    <lastmod>2018-03-08T22:01:19+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://liaanghao.com/post/japanese-preview/</loc>
-    <lastmod>2017-08-30T01:53:34+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://liaanghao.com/tags/preview/</loc>
-    <lastmod>2018-11-05T16:01:23+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://liaanghao.com/tags/tag-4/</loc>
-    <lastmod>2017-08-30T01:53:34+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://liaanghao.com/tags/%E6%97%A5%E6%9C%AC%E8%AA%9E/</loc>
-    <lastmod>2017-08-30T01:53:34+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://liaanghao.com/categories/%E6%97%A5%E6%9C%AC%E8%AA%9E/</loc>
-    <lastmod>2017-08-30T01:53:34+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://liaanghao.com/post/js-flowchart-diagrams/</loc>
-    <lastmod>2015-03-04T21:57:50+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://liaanghao.com/post/js-sequence-diagrams/</loc>
-    <lastmod>2015-03-04T21:57:45+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://liaanghao.com/tags/syntax-highlighting/</loc>
-    <lastmod>2018-11-05T16:01:23+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://liaanghao.com/categories/syntax-highlighting/</loc>
-    <lastmod>2018-11-05T16:01:23+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://liaanghao.com/post/syntax-highlighting/</loc>
-    <lastmod>2018-11-05T16:01:23+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://liaanghao.com/tags/tag-5/</loc>
-    <lastmod>2018-11-05T16:01:23+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
