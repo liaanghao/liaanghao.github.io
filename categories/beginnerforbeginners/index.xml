@@ -16,8 +16,7 @@
       <pubDate>Thu, 13 May 2021 16:01:23 +0800</pubDate>
       
       <guid>https://liaanghao.com/rtutorial/bfb01/</guid>
-      <description>&lt;h1 id=&#34;beginner-for-beginners-01-データと準備作業&#34;&gt;Beginner for Beginners 01: データと準備作業&lt;/h1&gt;
-&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;
+      <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;
 &lt;p&gt;　このシリーズは、Rを最初からやり直そうとする筆者のメモと、一橋大学佐藤圭一（学部・院）ゼミの皆様のために、書いたものである。主には、筆者が疑問に思う点や、ググってもなかなかまとまった答えが出てこない部分に着目して書いたものである。単純にどうやってコードを書くよりも、筆者なりに理解・説明・解釈を加えて行く予定ではあるが、必ずしも正しいわけではないことに要注意。筆者の進捗によって、週一あるいは隔週一の頻度でまとまってメモるものになるでしょう。&lt;/p&gt;
 &lt;h2 id=&#34;rとr-studioの準備作業&#34;&gt;RとR Studioの準備作業&lt;/h2&gt;
 &lt;p&gt;　詳細のインストール等の準備作業とよくある問題に会った時の対処法について、麦山亮太さんが日本語による説明が非常に詳細に書かれているので、&lt;a href=&#34;http://ryotamugiyama.com/2020/08/03/rinstall/&#34;&gt;そちら&lt;/a&gt;をご参照ください。&lt;/p&gt;
