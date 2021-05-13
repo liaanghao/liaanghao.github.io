@@ -49,7 +49,7 @@
 <meta itemprop="description" content="Beginner for Beginners 01: データと準備作業 Introduction このシリーズは、Rを最初からやり直そうとする筆者のメモと、一橋大学佐藤圭一（学部・院）ゼミの皆様のために、書いたも">
 <meta itemprop="datePublished" content="2021-05-13T16:01:23+08:00" />
 <meta itemprop="dateModified" content="2021-05-13T16:01:23+08:00" />
-<meta itemprop="wordCount" content="4813">
+<meta itemprop="wordCount" content="4817">
 
 
 
@@ -140,11 +140,13 @@
 <pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
+</span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-r" data-lang="r"><span class="n">useful.packages</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="s">&#34;tidyverse&#34;</span><span class="p">,</span> <span class="s">&#34;mtcar&#34;</span><span class="p">,</span> <span class="s">&#34;sna&#34;</span><span class="p">,</span>
-<span class="s">&#34;igraph&#34;</span><span class="p">,</span><span class="s">&#34;tranminer&#34;</span><span class="p">,</span><span class="s">&#34;psych&#34;</span><span class="p">,</span><span class="s">&#34;map&#34;</span><span class="p">)</span>
-<span class="nf">install.packages</span><span class="p">(</span><span class="n">useful.packages</span><span class="p">)</span>
+<pre class="chroma"><code class="language-r" data-lang="r"><span class="n">useful.packages</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="s">&#34;tidyverse&#34;</span><span class="p">,</span> <span class="s">&#34;broom&#34;</span><span class="p">,</span> <span class="s">&#34;sna&#34;</span><span class="p">,</span>
+                     <span class="s">&#34;igraph&#34;</span><span class="p">,</span><span class="s">&#34;traminer&#34;</span><span class="p">,</span><span class="s">&#34;psych&#34;</span><span class="p">)</span>
+<span class="nf">install.packages</span><span class="p">(</span><span class="n">useful.packages</span><span class="p">,</span> 
+                <span class="n">repos</span> <span class="o">=</span> <span class="s">&#34;https://cran.rstudio.com&#34;</span><span class="p">)</span>
 </code></pre></td></tr></table>
 </div>
 </div><p>これを、コピペして、ランしてください。少々時間がかかる可能性がある。</p>
@@ -155,7 +157,7 @@
 <pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">library</span><span class="p">(</span><span class="n">useful.packages</span><span class="p">)</span>   
+<pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">library</span><span class="p">(</span><span class="s">&#34;tidyverse&#34;</span><span class="p">)</span>   
 </code></pre></td></tr></table>
 </div>
 </div><p>以上で準備作業が終わったので、次にデータをR Studioに導入してみよう。</p>
