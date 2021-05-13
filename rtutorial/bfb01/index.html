@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Beginner for Beginners 01: データと準備作業 - liaanghao.com</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="Hao Liang" /><meta name="description" content="#The homework for Social Network 11/19/2020 #(→activity net homework2) #(→actor net homework2) autoauto- [The homework for Social Network 11/19/2020](#the-homework-for-social-network-11192020)auto- [&amp;nbsp; (&amp;rarr;activity net homework2)](#a-hreffilesactivitynetpdfnbsp-rarrfont-color87cefa-activity-net-homework2fontah4)auto- [&amp;nbsp; (&amp;rarr;actor net homework2)](#a-hreffilesactornetpdfnbsp-rarrfont-color87cefa-actor-net-homework2fontah4)auto - [Introduction](#introduction)auto - [RとR Studioの準備作業](#rとr-s" /><meta name="keywords" content="Liang Hao, Hao Liang, Hao Liang Sociology, homepage, 梁昊, りょう, こう, 一橋, ひとつばし, 社会学, しゃかいがく, 都市社会学, とし" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.76.2 with theme even" />
+
+
+<link rel="canonical" href="https://liaanghao.com/rtutorial/bfb01/" />
+<link rel="apple-touch-icon" sizes="180x180" href="https://liaanghao.com/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://liaanghao.com/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://liaanghao.com/favicon-16x16.png">
+<link rel="manifest" href="https://liaanghao.com/manifest.json">
+<link rel="mask-icon" href="https://liaanghao.com/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="https://liaanghao.com/sass/main.min.3c2a92d6354aad9202d9bb4e5e83b5b659ac1f05b9dfb382cfc9a0a839e7e477.css" rel="stylesheet">
+
+
+
+<meta property="og:title" content="Beginner for Beginners 01: データと準備作業" />
+<meta property="og:description" content="#The homework for Social Network 11/19/2020 #(→activity net homework2) #(→actor net homework2) autoauto- [The homework for Social Network 11/19/2020](#the-homework-for-social-network-11192020)auto- [&nbsp; (&rarr;activity net homework2)](#a-hreffilesactivitynetpdfnbsp-rarrfont-color87cefa-activity-net-homework2fontah4)auto- [&nbsp; (&rarr;actor net homework2)](#a-hreffilesactornetpdfnbsp-rarrfont-color87cefa-actor-net-homework2fontah4)auto - [Introduction](#introduction)auto - [RとR Studioの準備作業](#rとr-s" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://liaanghao.com/rtutorial/bfb01/" />
+
+<meta itemprop="name" content="Beginner for Beginners 01: データと準備作業">
+<meta itemprop="description" content="#The homework for Social Network 11/19/2020 #(→activity net homework2) #(→actor net homework2) autoauto- [The homework for Social Network 11/19/2020](#the-homework-for-social-network-11192020)auto- [&nbsp; (&rarr;activity net homework2)](#a-hreffilesactivitynetpdfnbsp-rarrfont-color87cefa-activity-net-homework2fontah4)auto- [&nbsp; (&rarr;actor net homework2)](#a-hreffilesactornetpdfnbsp-rarrfont-color87cefa-actor-net-homework2fontah4)auto - [Introduction](#introduction)auto - [RとR Studioの準備作業](#rとr-s">
+
+<meta itemprop="wordCount" content="5203">
+
+
+
+<meta itemprop="keywords" content="R,basics,deal with variables," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Beginner for Beginners 01: データと準備作業"/>
+<meta name="twitter:description" content="#The homework for Social Network 11/19/2020 #(→activity net homework2) #(→actor net homework2) autoauto- [The homework for Social Network 11/19/2020](#the-homework-for-social-network-11192020)auto- [&nbsp; (&rarr;activity net homework2)](#a-hreffilesactivitynetpdfnbsp-rarrfont-color87cefa-activity-net-homework2fontah4)auto- [&nbsp; (&rarr;actor net homework2)](#a-hreffilesactornetpdfnbsp-rarrfont-color87cefa-actor-net-homework2fontah4)auto - [Introduction](#introduction)auto - [RとR Studioの準備作業](#rとr-s"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="https://liaanghao.com/" class="logo">Hao Liang</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="https://liaanghao.com/research">
+        <li class="mobile-menu-item">Research</li>
+      </a><a href="https://liaanghao.com/rtutorial">
+        <li class="mobile-menu-item">RTutorial</li>
+      </a><a href="https://liaanghao.com/about/">
+        <li class="mobile-menu-item">About</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="https://liaanghao.com/" class="logo">Hao Liang</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="https://liaanghao.com/research">Research</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="https://liaanghao.com/rtutorial">RTutorial</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="https://liaanghao.com/about/">About</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+  <div class="post-content">
+    <p>#The homework for Social Network 11/19/2020
+#<a href=https://liaanghao.com/files/activitynet.pdf>  (→<font color=87cefa> activity net homework2</font>)</a></h4>
+#<a href=https://liaanghao.com/files/actornet.pdf>  (→<font color=87cefa> actor net homework2</font>)</a></h4>　　</p>
+<!-- TOC -->autoauto- [The homework for Social Network 11/19/2020](#the-homework-for-social-network-11192020)auto- [<a href=https://liaanghao.com/files/activitynet.pdf>&nbsp; (&rarr;<font color=87cefa> activity net homework2</font>)</a></h4>](#a-hreffilesactivitynetpdfnbsp-rarrfont-color87cefa-activity-net-homework2fontah4)auto- [<a href=https://liaanghao.com/files/actornet.pdf>&nbsp; (&rarr;<font color=87cefa> actor net homework2</font>)</a></h4>](#a-hreffilesactornetpdfnbsp-rarrfont-color87cefa-actor-net-homework2fontah4)auto    - [Introduction](#introduction)auto    - [RとR Studioの準備作業](#rとr-studioの準備作業)auto    - [パッケージについて](#パッケージについて)auto        - [インストール](#インストール)auto        - [読み込む](#読み込む)auto    - [データに関して](#データに関して)auto        - [独自の調査を行う](#独自の調査を行う)auto        - [公開データを使用する](#公開データを使用する)auto        - [データアーカイブ](#データアーカイブ)auto        - [Projectを作成する](#projectを作成する)auto        - [データを読み込む](#データを読み込む)auto            - [CSVファイル](#csvファイル)auto        - [データの確認](#データの確認)auto        - [変数名の変更](#変数名の変更)autoauto<!-- /TOC -->
+<h2 id="introduction">Introduction</h2>
+<p>　このシリーズは、Rを最初からやり直そうとする筆者のメモと、一橋大学佐藤圭一（学部・院）ゼミの皆様のために、書いたものである。主には、筆者が疑問に思う点や、ググってもなかなかまとまった答えが出てこない部分に着目して書いたものである。単純にどうやってコードを書くよりも、筆者なりに理解・説明・解釈を加えて行く予定ではあるが、必ずしも正しいわけではないことに要注意。筆者の進捗によって、週一あるいは隔週一の頻度でまとまってメモるものになるでしょう。</p>
+<h2 id="rとr-studioの準備作業">RとR Studioの準備作業</h2>
+<p>　詳細のインストール等の準備作業とよくある問題に会った時の対処法について、麦山亮太さんが日本語による説明が非常に詳細に書かれているので、<a href="http://ryotamugiyama.com/2020/08/03/rinstall/">そちら</a>をご参照ください。</p>
+<h2 id="パッケージについて">パッケージについて</h2>
+<h3 id="インストール">インストール</h3>
+<p>　分析上には、複数のパッケージを使用することとなるので、実際に使用する前に、それらをインストールする必要がある。パッケージをインストールする場合には、以下のコードが使用される。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">install.packages</span><span class="p">(</span><span class="s">&#34;tidyverse&#34;</span><span class="p">)</span>  
+</code></pre></td></tr></table>
+</div>
+</div><p>コマンドを実行するためのショートカットとして、<strong>Windows</strong>は<kbd>contrl</kbd>+<kbd>enter</kbd>で、<strong>Mac OS</strong>は<kbd>command</kbd>+<kbd>enter</kbd>です。</p>
+<p>一つずつインストールすると、非常に面倒な作業なので、ここでは初心者の筆者がよく使用される（使ったことがある）パッケージを一斎にインストールすることができるように以下のコードを作成した。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-r" data-lang="r"><span class="n">useful.packages</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="s">&#34;tidyverse&#34;</span><span class="p">,</span> <span class="s">&#34;mtcar&#34;</span><span class="p">,</span> <span class="s">&#34;sna&#34;</span><span class="p">,</span>
+<span class="s">&#34;igraph&#34;</span><span class="p">,</span><span class="s">&#34;tranminer&#34;</span><span class="p">,</span><span class="s">&#34;psych&#34;</span><span class="p">,</span><span class="s">&#34;map&#34;</span><span class="p">)</span>
+<span class="nf">install.packages</span><span class="p">(</span><span class="n">useful.packages</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>これを、コピペして、ランしてください。少々時間がかかる可能性がある。</p>
+<h3 id="読み込む">読み込む</h3>
+<p>作業を行う前には、毎回R Studioを立ち上げたあと、最初に行うべきことは、パッケージの読み込むと考えている。パッケージが読み込まれないと、コードを書いても反応しないことがあるので、その場合には、読み込むことが忘れているかをチェックしましょう。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">library</span><span class="p">(</span><span class="n">useful.packages</span><span class="p">)</span>   
+</code></pre></td></tr></table>
+</div>
+</div><p>以上で準備作業が終わったので、次にデータをR Studioに導入してみよう。</p>
+<h2 id="データに関して">データに関して</h2>
+<h3 id="独自の調査を行う">独自の調査を行う</h3>
+<p>実際の分析では、アンケート調査などで独自のデータを用意し、エクセル（一橋からアクセルあり）などを用いて、データの下処理を行うことが普通である。調査で得られた一人一人のデータ（個票データ）を、一つのファイルに統合し、R Studioに読み込む。</p>
+<h3 id="公開データを使用する">公開データを使用する</h3>
+<p>または、研究目的を達成するために、独自の調査を行うより、公開されている社会調査のデータを使用することはむしろ適切であるケースがあるでしょう。例えば、毎年行われている日本版総合社会調査<a href="https://jgss.daishodai.ac.jp/surveys/sur_top.html">(JGSS)</a>、東京大学などで十年ごとに行われている、社会階層と社会移動に関する調査<a href="http://www.l.u-tokyo.ac.jp/2015SSM-PJ/">(SSM)</a>などの調査データは、日本・世界中の複数のデータアーカイブに寄付され、特定の手順をへた後に、卒業論文や修士論文、博士論文などの使用されることが認められる。</p>
+<h3 id="データアーカイブ">データアーカイブ</h3>
+<p>以上のJGSSなどの公開データは、複数のデータアーカイブに寄付されている。例えば、日本国内における有名なデータアーカイブとして、<a href="https://csrda.iss.u-tokyo.ac.jp/">東京大学社会科学研究所付属社会調査・データアーカイブ研究センター</a>があり、世界的には、アメリカのミシガン大学の政治・社会調査のための大学協会<a href="https://www.icpsr.umich.edu/web/pages/ICPSR/index.html">Inter-university Consortium for Political and Social Research, ICPSR</a>があり、ドイツの<a href="https://www.gesis.org/en/home">GESIS – Leibniz Institute for the Social Sciences</a>、中国の<a href="http://www.cnsda.org/">Chinese National Survey Data Archive</a>などがある。<br>
+以上のデータアーカイブには、東大社研のデータにアクセスするために、事前に申請書を書かなければならないが、その他のアーカイブには、一橋のIDをログイン（ICPSR)か、アカウントを申請し、学術・教育にのみ使用される協議に同意することで、簡単に社会調査のデータをダウンロードすることができる。<br>
+このTutorialには、筆者個人の研究目的と、皆さんに実感を掴めるように、<strong>JGSS-2012</strong>のデータを使用する。データのダウンロードには、以上の<a href="https://www.icpsr.umich.edu/web/ICPSR/studies/36577">ICPSR</a>あるいは、<a href="https://search.gesis.org/research_data/ZA6427">GESIS</a>で各自ダウンロードするようにしてください(検索結果のページに繋げてあるので、どれかをクリックしてください)。</p>
+<h3 id="projectを作成する">Projectを作成する</h3>
+<p>関わっている作業が増えて行ったり、取っている授業数が多くなったりすることで、それぞれの作業と授業ごとにフォルダーに分けて管理することが（私なりに）普通でしょう。R Studioのプロジェクトもまさに同じようなイメージで掴めれば良いと思われる。それぞれのデータや、分析結果、作成した図などを、別々のフォルダーに管理することで、わかりやすくなる。<br>
+Projectの作成に関する説明は、ここでは省略するが、具体的に<a href="http://plaza.umin.ac.jp/~takeshou/R/RStudio1st.html">このサイト</a>をご参照。プロジェクトを作成できたら、以上でダウンローとしたデータをプロジェクトのフォルダーに保存しましょう。</p>
+<h3 id="データを読み込む">データを読み込む</h3>
+<p>以上の準備作業が完了したら、ダウンロードできたデータをR Studioに導入しましょう。普段皆さんがアクセスすることが多いデータの形式として、<kbd>.xlsx</kbd>と<kbd>.xls</kbd>のエクセルファイル、<kbd>.csv</kbd>のCSVファイル、まれに<kbd>.sta</kbd>のSTATAファイル、<kbd>.sav</kbd>のSPSSファイル、そして、ICSPRからデータをアクセスした場合、<kbd>.rda</kbd>のR専用のデータ形式もあるかと思います。<br>
+エクセルでデータの書類を行った場合、<kbd>.csv</kbd>のCSVに変換して保存することがおすすめ。CSVファイルは、さまざまな統計ソフトや、プログラミング言語との相性がよく、エクセルファイルが起こりうる不具合も少ない。<br>
+では、それぞれのファイルをR Studioに導入しましょう。</p>
+<h4 id="csvファイル">CSVファイル</h4>
+<p>データの導入は、基本的に似たようなコマンドを実行します。CSVファイルの場合は、<kbd>read.csv</kbd>は、Rの標準コードで、<kbd>read_csv</kbd>は<kbd>tidyverse</kbd>を読み込んだ場合に使えるコード。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-R" data-lang="R"><span class="nf">read.csv</span><span class="p">(</span><span class="s">&#34;JGSS-2012.csv&#34;</span><span class="p">)</span> <span class="c1">#ファイル名をそのままコピーし、.csvの拡張子も忘れずに。</span>
+<span class="nf">read_csv</span><span class="p">(</span><span class="s">&#34;JGSS-2012.csv&#34;</span><span class="p">)</span> <span class="c1">#tidyverse的な書き方</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>このように、データを読み込んだだけでは、コンソール(console)でデータの状況に関する説明が表示されるだけなので、データをデータフレイムとして保存する必要がある。データフレイムを作るのに、個人の好みで、適当な名前をつけ、<kbd>&lt;-</kbd>を使って、データフレイムとしてR Studioに認識させる。<br>
+<kbd>&lt;-</kbd>のショートカットに関して、<strong>Windows</strong>は<kbd>shift</kbd>+<kbd>&laquo;/kbd&gt;で、<strong>Mac OS</strong>は<kbd>option</kbd>+<kbd>-</kbd>です。<br>
+そこで、データをデータフレイムとして、R Studioに認識させるには、以下のコマンドを実行させる。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-R" data-lang="R"><span class="n">jgss2012</span> <span class="o">&lt;-</span> <span class="nf">read.csv</span><span class="p">(</span><span class="s">&#34;JGSS-2012.csv&#34;</span><span class="p">)</span>
+<span class="n">jgss2012</span> <span class="o">&lt;-</span> <span class="nf">read_csv</span><span class="p">(</span><span class="s">&#34;JGSS-2012.csv&#34;</span><span class="p">)</span> <span class="c1">#どれかを走らせれば良い</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>以上のどれかのコマンドをランしたら、インターフェースの右上の<strong>Environment</strong>欄の<strong>Data</strong>の部分に、jgss2012が表示されるはず。</p>
+<h3 id="データの確認">データの確認</h3>
+<p>JGSSのような公開された社会調査データを使用する場合、必ず<strong>コードブック</strong>というものがついてある。コードブックでは、それぞれの質問項目のコードや、欠損値の設定などを説明している。データをダウンロードする際には、コードブックも必ず確認しましょう。<br>
+では、データの導入ができたところ、きちんとデータフレイムとして認識されているかどうかを確認する。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">head</span><span class="p">(</span><span class="n">jgss2012</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>このコマンドを実行すると、コンソールに非常に長い変数のリストが表示されたら、とりあえずおけ。<br>
+また、別に全体を見たいわけでもなく、特定の変数だけを確認したい場合は、</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">head</span><span class="p">(</span><span class="n">jgss2012</span><span class="o">$</span><span class="n">sexa</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>を使用する。<kbd>＄</kbd>は、データセットの中で<kbd>sexa</kbd>という変数だけを取り出して、最初の何行くらいを確認する意味。このコマンドを実行すると、以下の内容が表示される。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">head</span><span class="p">(</span><span class="n">jgss2012</span><span class="o">$</span><span class="n">sexa</span><span class="p">)</span>
+<span class="n">[1]</span> <span class="m">1</span> <span class="m">1</span> <span class="m">2</span> <span class="m">2</span> <span class="m">2</span> <span class="m">2</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>複数の変数の状況を一回で確認したい場合は、</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">head</span><span class="p">(</span><span class="n">jgss2012[2</span><span class="o">:</span><span class="m">5</span><span class="n">]</span><span class="p">)</span> <span class="c1">#データセットの第二列から第五列のデータを取り出す</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>コンソールに２〜５列目のデータが表示される。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-r" data-lang="r"><span class="o">&gt;</span> <span class="nf">head</span><span class="p">(</span><span class="n">jgss2012[2</span><span class="o">:</span><span class="m">5</span><span class="n">]</span><span class="p">)</span>
+  <span class="n">size</span> <span class="n">size2k</span> <span class="n">sexa</span> <span class="n">dobyear</span>
+<span class="m">1</span>    <span class="m">3</span>      <span class="m">2</span>    <span class="m">1</span>    <span class="m">1924</span>
+<span class="m">2</span>    <span class="m">1</span>      <span class="m">1</span>    <span class="m">1</span>    <span class="m">1925</span>
+<span class="m">3</span>    <span class="m">2</span>      <span class="m">2</span>    <span class="m">2</span>    <span class="m">1927</span>
+<span class="m">4</span>    <span class="m">3</span>      <span class="m">2</span>    <span class="m">2</span>    <span class="m">1929</span>
+<span class="m">5</span>    <span class="m">3</span>      <span class="m">2</span>    <span class="m">2</span>    <span class="m">1929</span>
+<span class="m">6</span>    <span class="m">2</span>      <span class="m">2</span>    <span class="m">2</span>    <span class="m">1929</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>また、特定のいくつかの変数を確認したい場合、</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">head</span><span class="p">(</span><span class="n">jgss2012</span><span class="nf">[c</span><span class="p">(</span><span class="s">&#34;sexa&#34;</span><span class="p">,</span><span class="s">&#34;ageb&#34;</span><span class="p">,</span><span class="s">&#34;dobyear&#34;</span><span class="p">)</span><span class="n">]</span><span class="p">)</span> <span class="c1">#sexa, ageb, dobyearという三つの変数の先頭を取り出す</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>コンソールに性別、年齢、出生年の先頭情報が表示される。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-r" data-lang="r"><span class="o">&gt;</span> <span class="nf">head</span><span class="p">(</span><span class="n">jgss2012</span><span class="nf">[c</span><span class="p">(</span><span class="s">&#34;sexa&#34;</span><span class="p">,</span><span class="s">&#34;ageb&#34;</span><span class="p">,</span><span class="s">&#34;dobyear&#34;</span><span class="p">)</span><span class="n">]</span><span class="p">)</span>
+  <span class="n">sexa</span> <span class="n">ageb</span> <span class="n">dobyear</span>
+<span class="m">1</span>    <span class="m">1</span>   <span class="m">87</span>    <span class="m">1924</span>
+<span class="m">2</span>    <span class="m">1</span>   <span class="m">86</span>    <span class="m">1925</span>
+<span class="m">3</span>    <span class="m">2</span>   <span class="m">84</span>    <span class="m">1927</span>
+<span class="m">4</span>    <span class="m">2</span>   <span class="m">82</span>    <span class="m">1929</span>
+<span class="m">5</span>    <span class="m">2</span>   <span class="m">82</span>    <span class="m">1929</span>
+<span class="m">6</span>    <span class="m">2</span>   <span class="m">82</span>    <span class="m">1929</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>また、ヒストグラムを出して、目で尺度を確認することができる。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">hist</span><span class="p">(</span><span class="n">jgss2012</span><span class="o">$</span><span class="n">sexa</span><span class="p">)</span> <span class="c1">#jgss2012のデータセットの中のsexaの変数で、ヒストグラムを作る</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>このコマンドを実行すると、右下にヒストグラムが表示される。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">![年齢分布](/bfb/bfb1-1.png &#34;年齢分布&#34;)
+</code></pre></td></tr></table>
+</div>
+</div><p>以上のヒストグラムを作るには、パイプ演算子<kbd>%&gt;%</kbd>という<kbd>tidyverse</kbd>の機能を使って、以下のようにかける。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-r" data-lang="r"><span class="n">jgss2012</span><span class="o">$</span><span class="n">sexa</span> <span class="o">%&gt;%</span> 
+  <span class="nf">hist</span><span class="p">()</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>表示される図は以上のものと同じであるが、パイプ演算子を使用することで、データを前に出して、複雑なコマンドを書くときにわかりやすいのメリットがある。</p>
+<h3 id="変数名の変更">変数名の変更</h3>
+<p>JGSS2012には、変数が多いゆえに、変数名も長くておかしいフものの場合が多い。分析するときに、変数名をそのまま使ってもいいが、利便性の面から考えると、変数名の変更をおすすめする。変数名を変更するのに、以下のいくつかの方法がある。<br>
+まず、変数の名前を確認する</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">names</span><span class="p">(</span><span class="n">jgss2012</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">  1
+</span><span class="lnt">  2
+</span><span class="lnt">  3
+</span><span class="lnt">  4
+</span><span class="lnt">  5
+</span><span class="lnt">  6
+</span><span class="lnt">  7
+</span><span class="lnt">  8
+</span><span class="lnt">  9
+</span><span class="lnt"> 10
+</span><span class="lnt"> 11
+</span><span class="lnt"> 12
+</span><span class="lnt"> 13
+</span><span class="lnt"> 14
+</span><span class="lnt"> 15
+</span><span class="lnt"> 16
+</span><span class="lnt"> 17
+</span><span class="lnt"> 18
+</span><span class="lnt"> 19
+</span><span class="lnt"> 20
+</span><span class="lnt"> 21
+</span><span class="lnt"> 22
+</span><span class="lnt"> 23
+</span><span class="lnt"> 24
+</span><span class="lnt"> 25
+</span><span class="lnt"> 26
+</span><span class="lnt"> 27
+</span><span class="lnt"> 28
+</span><span class="lnt"> 29
+</span><span class="lnt"> 30
+</span><span class="lnt"> 31
+</span><span class="lnt"> 32
+</span><span class="lnt"> 33
+</span><span class="lnt"> 34
+</span><span class="lnt"> 35
+</span><span class="lnt"> 36
+</span><span class="lnt"> 37
+</span><span class="lnt"> 38
+</span><span class="lnt"> 39
+</span><span class="lnt"> 40
+</span><span class="lnt"> 41
+</span><span class="lnt"> 42
+</span><span class="lnt"> 43
+</span><span class="lnt"> 44
+</span><span class="lnt"> 45
+</span><span class="lnt"> 46
+</span><span class="lnt"> 47
+</span><span class="lnt"> 48
+</span><span class="lnt"> 49
+</span><span class="lnt"> 50
+</span><span class="lnt"> 51
+</span><span class="lnt"> 52
+</span><span class="lnt"> 53
+</span><span class="lnt"> 54
+</span><span class="lnt"> 55
+</span><span class="lnt"> 56
+</span><span class="lnt"> 57
+</span><span class="lnt"> 58
+</span><span class="lnt"> 59
+</span><span class="lnt"> 60
+</span><span class="lnt"> 61
+</span><span class="lnt"> 62
+</span><span class="lnt"> 63
+</span><span class="lnt"> 64
+</span><span class="lnt"> 65
+</span><span class="lnt"> 66
+</span><span class="lnt"> 67
+</span><span class="lnt"> 68
+</span><span class="lnt"> 69
+</span><span class="lnt"> 70
+</span><span class="lnt"> 71
+</span><span class="lnt"> 72
+</span><span class="lnt"> 73
+</span><span class="lnt"> 74
+</span><span class="lnt"> 75
+</span><span class="lnt"> 76
+</span><span class="lnt"> 77
+</span><span class="lnt"> 78
+</span><span class="lnt"> 79
+</span><span class="lnt"> 80
+</span><span class="lnt"> 81
+</span><span class="lnt"> 82
+</span><span class="lnt"> 83
+</span><span class="lnt"> 84
+</span><span class="lnt"> 85
+</span><span class="lnt"> 86
+</span><span class="lnt"> 87
+</span><span class="lnt"> 88
+</span><span class="lnt"> 89
+</span><span class="lnt"> 90
+</span><span class="lnt"> 91
+</span><span class="lnt"> 92
+</span><span class="lnt"> 93
+</span><span class="lnt"> 94
+</span><span class="lnt"> 95
+</span><span class="lnt"> 96
+</span><span class="lnt"> 97
+</span><span class="lnt"> 98
+</span><span class="lnt"> 99
+</span><span class="lnt">100
+</span><span class="lnt">101
+</span><span class="lnt">102
+</span><span class="lnt">103
+</span><span class="lnt">104
+</span><span class="lnt">105
+</span><span class="lnt">106
+</span><span class="lnt">107
+</span><span class="lnt">108
+</span><span class="lnt">109
+</span><span class="lnt">110
+</span><span class="lnt">111
+</span><span class="lnt">112
+</span><span class="lnt">113
+</span><span class="lnt">114
+</span><span class="lnt">115
+</span><span class="lnt">116
+</span><span class="lnt">117
+</span><span class="lnt">118
+</span><span class="lnt">119
+</span><span class="lnt">120
+</span><span class="lnt">121
+</span><span class="lnt">122
+</span><span class="lnt">123
+</span><span class="lnt">124
+</span><span class="lnt">125
+</span><span class="lnt">126
+</span><span class="lnt">127
+</span><span class="lnt">128
+</span><span class="lnt">129
+</span><span class="lnt">130
+</span><span class="lnt">131
+</span><span class="lnt">132
+</span><span class="lnt">133
+</span><span class="lnt">134
+</span><span class="lnt">135
+</span><span class="lnt">136
+</span><span class="lnt">137
+</span><span class="lnt">138
+</span><span class="lnt">139
+</span><span class="lnt">140
+</span><span class="lnt">141
+</span><span class="lnt">142
+</span><span class="lnt">143
+</span><span class="lnt">144
+</span><span class="lnt">145
+</span><span class="lnt">146
+</span><span class="lnt">147
+</span><span class="lnt">148
+</span><span class="lnt">149
+</span><span class="lnt">150
+</span><span class="lnt">151
+</span><span class="lnt">152
+</span><span class="lnt">153
+</span><span class="lnt">154
+</span><span class="lnt">155
+</span><span class="lnt">156
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">&gt; names(jgss2012)
+  [1] &#34;iduse&#34;        &#34;size&#34;         &#34;size2k&#34;       &#34;sexa&#34;        
+  [5] &#34;dobyear&#34;      &#34;ageb&#34;         &#34;marc&#34;         &#34;form&#34;        
+  [9] &#34;xjob1wk&#34;      &#34;xjobhwk&#34;      &#34;szsjbhwk&#34;     &#34;tpjb&#34;        
+ [13] &#34;tpjbs&#34;        &#34;tpjobp&#34;       &#34;tpjbse&#34;       &#34;docmt&#34;       
+ [17] &#34;szcmthr&#34;      &#34;szcmtmin&#34;     &#34;szcmttl&#34;      &#34;cmtwalk&#34;     
+ [21] &#34;cmtbcyl&#34;      &#34;cmtmcyl&#34;      &#34;cmtbus&#34;       &#34;cmttrain&#34;    
+ [25] &#34;cmtcar&#34;       &#34;cmtboat&#34;      &#34;cmtetc&#34;       &#34;tp4wpla&#34;     
+ [29] &#34;xxwpl&#34;        &#34;xxjob&#34;        &#34;xxjobe&#34;       &#34;xjobdwk&#34;     
+ [33] &#34;xjbsch&#34;       &#34;xjobyr&#34;       &#34;szttlsta&#34;     &#34;joinuni&#34;     
+ [37] &#34;st5job&#34;       &#34;wlkeepja&#34;     &#34;op4unemp&#34;     &#34;op3newjb&#34;    
+ [41] &#34;tp5unemp&#34;     &#34;xwork&#34;        &#34;agestpwk&#34;     &#34;xxstpjb&#34;     
+ [45] &#34;tplstjb&#34;      &#34;tplstjbs&#34;     &#34;tplstjbp&#34;     &#34;xxlstjb&#34;     
+ [49] &#34;xxlstjbe&#34;     &#34;szstfls&#34;      &#34;dolookjb&#34;     &#34;domarry&#34;     
+ [53] &#34;ssjb1wk&#34;      &#34;sstpunem&#34;     &#34;ssjbhrwk&#34;     &#34;sssjbhwk&#34;    
+ [57] &#34;sstpjb&#34;       &#34;sstpjbs&#34;      &#34;sstpjobp&#34;     &#34;sstpjbse&#34;    
+ [61] &#34;ssxxhqx&#34;      &#34;ssxxjob&#34;      &#34;ssxxjobe&#34;     &#34;ssjbdwk&#34;     
+ [65] &#34;ssxjbsch&#34;     &#34;ssszwkyr&#34;     &#34;ssszstfa&#34;     &#34;spagex&#34;      
+ [69] &#34;splvtg&#34;       &#34;pplvtg&#34;       &#34;mmlvtg&#34;       &#34;ppage&#34;       
+ [73] &#34;mmage&#34;        &#34;ppmg&#34;         &#34;mmmg&#34;         &#34;ppjob&#34;       
+ [77] &#34;mmjob&#34;        &#34;ccnumttl&#34;     &#34;cc01sex&#34;      &#34;cc02sex&#34;     
+ [81] &#34;cc03sex&#34;      &#34;cc04sex&#34;      &#34;cc05sex&#34;      &#34;cc06sex&#34;     
+ [85] &#34;cc07sex&#34;      &#34;cc08sex&#34;      &#34;cc09sex&#34;      &#34;cc10sex&#34;     
+ [89] &#34;cc11sex&#34;      &#34;cc01lvtg&#34;     &#34;cc02lvtg&#34;     &#34;cc03lvtg&#34;    
+ [93] &#34;cc04lvtg&#34;     &#34;cc05lvtg&#34;     &#34;cc06lvtg&#34;     &#34;cc07lvtg&#34;    
+ [97] &#34;cc08lvtg&#34;     &#34;cc09lvtg&#34;     &#34;cc10lvtg&#34;     &#34;cc11lvtg&#34;    
+[101] &#34;cc01age&#34;      &#34;cc02age&#34;      &#34;cc03age&#34;      &#34;cc04age&#34;     
+[105] &#34;cc05age&#34;      &#34;cc06age&#34;      &#34;cc07age&#34;      &#34;cc08age&#34;     
+[109] &#34;cc09age&#34;      &#34;cc10age&#34;      &#34;cc11age&#34;      &#34;cc01mg&#34;      
+[113] &#34;cc02mg&#34;       &#34;cc03mg&#34;       &#34;cc04mg&#34;       &#34;cc05mg&#34;      
+[117] &#34;cc06mg&#34;       &#34;cc07mg&#34;       &#34;cc08mg&#34;       &#34;cc09mg&#34;      
+[121] &#34;cc10mg&#34;       &#34;cc11mg&#34;       &#34;cc01job&#34;      &#34;cc02job&#34;     
+[125] &#34;cc03job&#34;      &#34;cc04job&#34;      &#34;cc05job&#34;      &#34;cc06job&#34;     
+[129] &#34;cc07job&#34;      &#34;cc08job&#34;      &#34;cc09job&#34;      &#34;cc10job&#34;     
+[133] &#34;cc11job&#34;      &#34;szffothr&#34;     &#34;ffh01rel&#34;     &#34;ffh02rel&#34;    
+[137] &#34;ffh03rel&#34;     &#34;ffh04rel&#34;     &#34;ffh05rel&#34;     &#34;ffh06rel&#34;    
+[141] &#34;ffh07rel&#34;     &#34;ffh08rel&#34;     &#34;ffh01sex&#34;     &#34;ffh02sex&#34;    
+[145] &#34;ffh03sex&#34;     &#34;ffh04sex&#34;     &#34;ffh05sex&#34;     &#34;ffh06sex&#34;    
+[149] &#34;ffh07sex&#34;     &#34;ffh08sex&#34;     &#34;ffh01age&#34;     &#34;ffh02age&#34;    
+[153] &#34;ffh03age&#34;     &#34;ffh04age&#34;     &#34;ffh05age&#34;     &#34;ffh06age&#34;    
+[157] &#34;ffh07age&#34;     &#34;ffh08age&#34;     &#34;szffonly&#34;     &#34;szffttl&#34;     
+[161] &#34;ffhead&#34;       &#34;szffout&#34;      &#34;ffo01rel&#34;     &#34;ffo02rel&#34;    
+[165] &#34;ffo03rel&#34;     &#34;ffo04rel&#34;     &#34;ffo05rel&#34;     &#34;ffo06rel&#34;    
+[169] &#34;ffo07rel&#34;     &#34;ffo01why&#34;     &#34;ffo02why&#34;     &#34;ffo03why&#34;    
+[173] &#34;ffo04why&#34;     &#34;ffo05why&#34;     &#34;ffo06why&#34;     &#34;ffo07why&#34;    
+[177] &#34;incself&#34;      &#34;incsp&#34;        &#34;incpar&#34;       &#34;incfam&#34;      
+[181] &#34;incpen&#34;       &#34;incueb&#34;       &#34;incsave&#34;      &#34;incsoc&#34;      
+[185] &#34;incirr&#34;       &#34;incrent&#34;      &#34;incother&#34;     &#34;incnokn&#34;     
+[189] &#34;incmain&#34;      &#34;op10lvl&#34;      &#34;sizehmt&#34;      &#34;szhsincm&#34;    
+[193] &#34;szincoma&#34;     &#34;szincomx&#34;     &#34;ssszinca&#34;     &#34;ssszincm&#34;    
+[197] &#34;xnumbroe&#34;     &#34;xnumsise&#34;     &#34;xnumbroy&#34;     &#34;xnumsisy&#34;    
+[201] &#34;xssnbroe&#34;     &#34;xssnsise&#34;     &#34;xssnbroy&#34;     &#34;xssnsisy&#34;    
+[205] &#34;tp5loc15&#34;     &#34;remote15&#34;     &#34;ppjb15&#34;       &#34;ppjbt15s&#34;    
+[209] &#34;ppjbt15p&#34;     &#34;ppjbxx15&#34;     &#34;ppjbsz15&#34;     &#34;mmjbtp15&#34;    
+[213] &#34;xxlstsch&#34;     &#34;sslstsch&#34;     &#34;pplstsch&#34;     &#34;mmlstsch&#34;    
+[217] &#34;dolstsch&#34;     &#34;agegrd&#34;       &#34;agedrp&#34;       &#34;xgrade&#34;      
+[221] &#34;xspsch&#34;       &#34;ssdolsts&#34;     &#34;ssagegrd&#34;     &#34;ssagedrp&#34;    
+[225] &#34;ssxgrade&#34;     &#34;pspsch&#34;       &#34;xgetjob&#34;      &#34;tp1stjb&#34;     
+[229] &#34;tp1stjbs&#34;     &#34;tpfstjbp&#34;     &#34;xxfstjb&#34;      &#34;szstffst&#34;    
+[233] &#34;xmarry&#34;       &#34;nummarry&#34;     &#34;age1mg&#34;       &#34;age2mg&#34;      
+[237] &#34;age3mg&#34;       &#34;age4mg&#34;       &#34;xdiv&#34;         &#34;fqxdiv&#34;      
+[241] &#34;age1div&#34;      &#34;age2div&#34;      &#34;age3div&#34;      &#34;xwidow&#34;      
+[245] &#34;fqwdw&#34;        &#34;age1wdw&#34;      &#34;age2wdw&#34;      &#34;xqtjbmrg&#34;    
+[249] &#34;xqtjbbth&#34;     &#34;xqtjbno&#34;      &#34;coop&#34;         &#34;ustand&#34;      
+[253] &#34;area&#34;         &#34;tphouse&#34;      &#34;autolock&#34;     &#34;proc&#34;        
+[257] &#34;duration&#34;     &#34;date&#34;         &#34;month&#34;        &#34;day&#34;         
+[261] &#34;dateb&#34;        &#34;monthb&#34;       &#34;dayb&#34;         &#34;hrtv&#34;        
+[265] &#34;fq5read&#34;      &#34;fq5newsp&#34;     &#34;docompj&#34;      &#34;docompp&#34;     
+[269] &#34;dophs&#34;        &#34;dononex&#34;      &#34;doinbrs&#34;      &#34;doinshop&#34;    
+[273] &#34;doinbank&#34;     &#34;doinhpb&#34;      &#34;doingame&#34;     &#34;doinnone&#34;    
+[277] &#34;fqsport&#34;      &#34;fq5trip&#34;      &#34;fq7ffdnr&#34;     &#34;fq7frsee&#34;    
+[281] &#34;fq7ckdnr&#34;     &#34;fq7wash&#34;      &#34;fq7shop&#34;      &#34;fq7clean&#34;    
+[285] &#34;fq7garb&#34;      &#34;fq4drive&#34;     &#34;fq4kara&#34;      &#34;fq4movie&#34;    
+[289] &#34;fq4music&#34;     &#34;fq4game&#34;      &#34;fq4green&#34;     &#34;fq4shgig&#34;    
+[293] &#34;fq4lotto&#34;     &#34;fq4pachi&#34;     &#34;op5hlthz&#34;     &#34;dosmokex&#34;    
+[297] &#34;xqtsmoke&#34;     &#34;do7drink&#34;     &#34;xtraum5y&#34;     &#34;st5areay&#34;    
+[301] &#34;st5leisy&#34;     &#34;st5lifey&#34;     &#34;st5ecny&#34;      &#34;st5friy&#34;     
+[305] &#34;st5hlthy&#34;     &#34;st5ssrel&#34;     &#34;op5happz&#34;     &#34;nofutr&#34;      
+[309] &#34;nogoal&#34;       &#34;sfmhpeac&#34;     &#34;sfmhengy&#34;     &#34;sfmhdprs&#34;    
+[313] &#34;colfav&#34;       &#34;colmod&#34;       &#34;ownhouse&#34;     &#34;doecslp&#34;     
+[317] &#34;doecmnp&#34;      &#34;doecwc&#34;       &#34;doeclmc&#34;      &#34;doecnone&#34;    
+[321] &#34;fq4denki&#34;     &#34;fq4elc&#34;       &#34;xliveyr&#34;      &#34;wllive&#34;      
+[325] &#34;xlrnjb&#34;       &#34;xlrncltr&#34;     &#34;ac10tutr&#34;     &#34;ac10xtra&#34;    
+[329] &#34;ac10comm&#34;     &#34;ac10cln&#34;      &#34;ac10fest&#34;     &#34;convpre&#34;     
+[333] &#34;convelem&#34;     &#34;convhigh&#34;     &#34;conv20s&#34;      &#34;conv40s&#34;     
+[337] &#34;conv60s&#34;      &#34;conv80s&#34;      &#34;numfrnd&#34;      &#34;frndsex&#34;     
+[341] &#34;frndgen&#34;      &#34;frndedu&#34;      &#34;frndinc&#34;      &#34;frndfrgn&#34;    
+[345] &#34;op3ecn3a&#34;     &#34;op5ffinx&#34;     &#34;opffix15&#34;     &#34;op5schpf&#34;    
+[349] &#34;op5chnca&#34;     &#34;op5pensn&#34;     &#34;op5levk&#34;      &#34;axecnsf&#34;     
+[353] &#34;op5srwfy&#34;     &#34;op5srmdy&#34;     &#34;op5cced&#34;      &#34;op5ccare&#34;    
+[357] &#34;op5radca&#34;     &#34;op6taxhi&#34;     &#34;q5gveqaa&#34;     &#34;xx8plpty&#34;    
+[361] &#34;oldpok&#34;       &#34;odpok&#34;        &#34;okomeiok&#34;     &#34;ocommpok&#34;    
+[365] &#34;osdpok&#34;       &#34;ominnaok&#34;     &#34;ootherok&#34;     &#34;onoplpok&#34;    
+[369] &#34;oplpdont&#34;     &#34;okokumok&#34;     &#34;otachiok&#34;     &#34;oshintok&#34;    
+[373] &#34;oishinok&#34;     &#34;desadmin&#34;     &#34;qfnrincr&#34;     &#34;fearwalk&#34;    
+[377] &#34;xrobbd1y&#34;     &#34;xstoln1y&#34;     &#34;appccnum&#34;     &#34;appccnmx&#34;    
+[381] &#34;appccsxb&#34;     &#34;op2gnr&#34;       &#34;q4savelc&#34;     &#34;q2tpp&#34;       
+[385] &#34;opcnsmtx&#34;     &#34;q4divok&#34;      &#34;q4wwjbia&#34;     &#34;q4wnmga&#34;     
+[389] &#34;q4mncook&#34;     &#34;q4wwhhx&#34;      &#34;q4mnmga&#34;      &#34;q4jbmmcc&#34;    
+[393] &#34;q4noccmg&#34;     &#34;q4wwhphh&#34;     &#34;opempf&#34;       &#34;opemp1c&#34;     
+[397] &#34;q5polint&#34;     &#34;q5cntsoc&#34;     &#34;opnbmtcn&#34;     &#34;opnbass&#34;     
+[401] &#34;q5slvprb&#34;     &#34;opcasino&#34;     &#34;op4trust&#34;     &#34;op7gdevo&#34;    
+[405] &#34;acptfrnd&#34;     &#34;acptleft&#34;     &#34;acptrght&#34;     &#34;acptcont&#34;    
+[409] &#34;tlkss&#34;        &#34;tlkpm&#34;        &#34;tlkcc&#34;        &#34;tlksib&#34;      
+[413] &#34;tlkboss&#34;      &#34;tlkcllg&#34;      &#34;tlkwrk&#34;       &#34;tlknb&#34;       
+[417] &#34;tlkfri&#34;       &#34;tlkno&#34;        &#34;wlvldo&#34;       &#34;mempltgp&#34;    
+[421] &#34;memind&#34;       &#34;memvlntr&#34;     &#34;memcivil&#34;     &#34;memrl&#34;       
+[425] &#34;memsport&#34;     &#34;memhobby&#34;     &#34;memcoop&#34;      &#34;fqnbas&#34;      
+[429] &#34;xvlimprt&#34;     &#34;xvlntenv&#34;     &#34;xvlsafe&#34;      &#34;xvlspts&#34;     
+[433] &#34;xvleld&#34;       &#34;xvlcc&#34;        &#34;xvlothr&#34;      &#34;xvlnone&#34;     
+[437] &#34;xvldisab&#34;     &#34;xdntreg&#34;      &#34;xdntbox&#34;      &#34;xdntsch&#34;     
+[441] &#34;xdntmass&#34;     &#34;xdntothr&#34;     &#34;xdntnone&#34;     &#34;szdnt&#34;       
+[445] &#34;tr3corpz&#34;     &#34;tr3rlgpz&#34;     &#34;tr3schlz&#34;     &#34;tr3bcraz&#34;    
+[449] &#34;tr3unnz&#34;      &#34;tr3nwspz&#34;     &#34;tr3hsplz&#34;     &#34;tr3tvz&#34;      
+[453] &#34;tr3spcaz&#34;     &#34;tr3acdaz&#34;     &#34;tr3cgmnz&#34;     &#34;tr3cityz&#34;    
+[457] &#34;tr3defz&#34;      &#34;tr3copz&#34;      &#34;tr3finz&#34;      &#34;q2dthpy&#34;     
+[461] &#34;dorl&#34;         &#34;xxrl&#34;         &#34;do3pious&#34;     &#34;disquake&#34;    
+[465] &#34;distsnm&#34;      &#34;disflood&#34;     &#34;disvolc&#34;      &#34;disland&#34;     
+[469] &#34;disnuc&#34;       &#34;axdis&#34;        &#34;opnucpol&#34;     &#34;opgovaqk&#34;    
+[473] &#34;opgovrec&#34;     &#34;supmoney&#34;     &#34;supgoods&#34;     &#34;suppurch&#34;    
+[477] &#34;supinv&#34;       &#34;supbonds&#34;     &#34;supvolin&#34;     &#34;supvolot&#34;    
+[481] &#34;supother&#34;     &#34;supno&#34;        &#34;chcopp&#34;       &#34;chcomm&#34;      
+[485] &#34;chcocc&#34;       &#34;chcoss&#34;       &#34;qkwrkhr&#34;      &#34;qkwrkred&#34;    
+[489] &#34;qkhome&#34;       &#34;qkbusday&#34;     &#34;qkovrtm&#34;      &#34;qkbnkown&#34;    
+[493] &#34;qkbnkcli&#34;     &#34;qkwgdwn&#34;      &#34;qkfired&#34;      &#34;qknorenw&#34;    
+[497] &#34;qkretire&#34;     &#34;qkot&#34;         &#34;qknoinf&#34;      &#34;qkunemp&#34;     
+[501] &#34;qkspow&#34;       &#34;qkshog&#34;       &#34;qkharr&#34;       &#34;qkdecus&#34;     
+[505] &#34;qkincb&#34;       &#34;qkincs&#34;       &#34;qkdwe&#34;        &#34;axfdrad&#34;     
+[509] &#34;enhmap&#34;       &#34;enhmwp&#34;       &#34;enhmsp&#34;       &#34;commdis&#34;     
+[513] &#34;optaxqk&#34;      &#34;op5hlthe&#34;     &#34;op5happe&#34;     &#34;jobnpo&#34;      
+[517] &#34;ssjbnpo&#34;      &#34;prtpltgp&#34;     &#34;prtnbas&#34;      &#34;prtvlntr&#34;    
+[521] &#34;prtcivil&#34;     &#34;prtrl&#34;        &#34;prtalum&#34;      &#34;prthobby&#34;    
+[525] &#34;prtunion&#34;     &#34;prtprof&#34;      &#34;prtmstat&#34;     &#34;orghiera&#34;    
+[529] &#34;orghomo&#34;      &#34;pintdfa&#34;      &#34;pintdot&#34;      &#34;nokinst&#34;     
+[533] &#34;ocpprof&#34;      &#34;ocplaw&#34;       &#34;ocpnurs&#34;      &#34;ocpcomp&#34;     
+[537] &#34;ocpteach&#34;     &#34;ocppers&#34;      &#34;ocpfarm&#34;      &#34;ocphair&#34;     
+[541] &#34;ocprcpt&#34;      &#34;ocppolic&#34;     &#34;acqabrd&#34;      &#34;acqfnr&#34;      
+[545] &#34;jbnetnum&#34;     &#34;jbnetuse&#34;     &#34;eatnkfq&#34;      &#34;eatnkhi&#34;     
+[549] &#34;eatnkdom&#34;     &#34;eatnksea&#34;     &#34;eatnknew&#34;     &#34;hlpwrry&#34;     
+[553] &#34;hlphlth&#34;      &#34;hlpcare&#34;      &#34;hlpfin&#34;       &#34;hlpdis&#34;      
+[557] &#34;nnbgreet&#34;     &#34;nnbfavor&#34;     &#34;sotoleq&#34;      &#34;sotolhi&#34;     
+[561] &#34;sotollo&#34;      &#34;meetenv&#34;      &#34;meetedu&#34;      &#34;meetsafe&#34;    
+[565] &#34;meetcons&#34;     &#34;volcomm&#34;      &#34;volsport&#34;     &#34;volvuln&#34;     
+[569] &#34;volother&#34;     &#34;volpol&#34;       &#34;volno&#34;        &#34;elcfam&#34;      
+[573] &#34;elcwork&#34;      &#34;elcnb&#34;        &#34;elcfri&#34;       &#34;elcrelig&#34;    
+[577] &#34;elchobby&#34;     &#34;elccamp&#34;      &#34;elcother&#34;     &#34;elcno&#34;       
+[581] &#34;tr4relat&#34;     &#34;tr4fri&#34;       &#34;tr4nb&#34;        &#34;tr4clg&#34;      
+[585] &#34;tr4strng&#34;     &#34;tr4phys&#34;      &#34;tr4bank&#34;      &#34;tr4exec&#34;     
+[589] &#34;tr4jrnl&#34;      &#34;tr4ngo&#34;       &#34;tr4teach&#34;     &#34;tr4locgv&#34;    
+[593] &#34;tr4cntgv&#34;     &#34;tr4polic&#34;     &#34;tr4sdf&#34;       &#34;tr4judge&#34;    
+[597] &#34;q7nopwr&#34;      &#34;q7gvcmpl&#34;     &#34;q7polint&#34;     &#34;q7cntsoc&#34;    
+[601] &#34;q7nbmtcn&#34;     &#34;q7nbass&#34;      &#34;q7slvprb&#34;     &#34;powchglf&#34;    
+[605] &#34;finbond&#34;      &#34;finfrgn&#34;      &#34;fininvtr&#34;     &#34;finstock&#34;    
+[609] &#34;finother&#34;     &#34;finno&#34;        &#34;weight&#34;       &#34;gender&#34;      
+[613] &#34;male_dummy&#34;   &#34;mentalhealth&#34; &#34;na.rm&#34;        &#34;educ&#34;        
+[617] &#34;urban&#34;    
+</code></pre></td></tr></table>
+</div>
+</div><p>その中に、sexaの変数名をsexに変更したい場合は、以下のコマンドを実行する</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">names</span><span class="p">(</span><span class="n">jgss2012</span><span class="p">)</span><span class="nf">[names</span><span class="p">(</span><span class="n">jgss2012</span><span class="p">)</span> <span class="o">==</span> <span class="s">&#34;sexa&#34;</span><span class="n">]</span> <span class="o">&lt;-</span> <span class="s">&#34;sex&#34;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>あるいは</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-r" data-lang="r"><span class="n">jgss2012</span> <span class="o">%&gt;%</span> 
+  <span class="nf">rename</span><span class="p">(</span><span class="n">sex</span> <span class="o">=</span> <span class="n">sexa</span><span class="p">)</span> <span class="c1">#左側に新しい名前、右側に古い名前</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>以上で、今回のTutorialが終わります。次回は、変数の作成、合併、サブセット、ダミー変数、合成変数と信頼度について取り扱う予定。</p>
+
+  </div>
+</article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+   <span class="copyright-year">
+    &copy; 
+    2020 - 
+    2021<embed text="  ">
+   Hao Liang
+    </embed><span text="   ">
+  <embed class="social-links">
+        <a href="mailto:liaang.hao@gmail.com" class="iconfont icon-email" title="email"></a>
+        <a href="http://github.com/liaanghao" class="iconfont icon-github" title="github"></a>
+  </span>
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+
+
+
+<script type="text/javascript" src="https://liaanghao.com/js/main.min.c12618f9a600c40bd024996677e951e64d3487006775aeb22e200c990006c5c7.js"></script>
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-180283380-1', 'auto');
+	ga('set', 'anonymizeIp', true);
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+
+
+
+
+
+</body>
+</html>

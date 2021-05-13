@@ -134,4 +134,28 @@
     <priority>0.5</priority>
   </url>
   
+  <url>
+    <loc>https://liaanghao.com/tags/basics/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://liaanghao.com/rtutorial/bfb01/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://liaanghao.com/tags/deal-with-variables/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://liaanghao.com/rtutorial/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
 </urlset>
