@@ -45,11 +45,11 @@
     
     
     <item>
-      <title>Syntax Highlighting</title>
-      <link>https://liaanghao.com/categories/syntax-highlighting/</link>
-      <pubDate>Tue, 30 Aug 2011 16:01:23 +0800</pubDate>
+      <title>shortcodes</title>
+      <link>https://liaanghao.com/categories/shortcodes/</link>
+      <pubDate>Tue, 30 Aug 2016 16:01:23 +0800</pubDate>
       
-      <guid>https://liaanghao.com/categories/syntax-highlighting/</guid>
+      <guid>https://liaanghao.com/categories/shortcodes/</guid>
       <description></description>
     </item>
     
@@ -58,6 +58,15 @@
     
     
     
+    
+    <item>
+      <title>Syntax Highlighting</title>
+      <link>https://liaanghao.com/categories/syntax-highlighting/</link>
+      <pubDate>Tue, 30 Aug 2011 16:01:23 +0800</pubDate>
+      
+      <guid>https://liaanghao.com/categories/syntax-highlighting/</guid>
+      <description></description>
+    </item>
     
     
   </channel>
