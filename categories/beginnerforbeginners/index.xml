@@ -1,0 +1,592 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>beginnerforbeginners on liaanghao.com</title>
+    <link>https://liaanghao.com/categories/beginnerforbeginners/</link>
+    <description>Recent content in beginnerforbeginners on liaanghao.com</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Thu, 13 May 2021 16:01:23 +0800</lastBuildDate>
+    
+        <atom:link href="https://liaanghao.com/categories/beginnerforbeginners/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Beginner for Beginners 01: データと準備作業</title>
+      <link>https://liaanghao.com/rtutorial/bfb01/</link>
+      <pubDate>Thu, 13 May 2021 16:01:23 +0800</pubDate>
+      
+      <guid>https://liaanghao.com/rtutorial/bfb01/</guid>
+      <description>&lt;h1 id=&#34;beginner-for-beginners-01-データと準備作業&#34;&gt;Beginner for Beginners 01: データと準備作業&lt;/h1&gt;
+&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;
+&lt;p&gt;　このシリーズは、Rを最初からやり直そうとする筆者のメモと、一橋大学佐藤圭一（学部・院）ゼミの皆様のために、書いたものである。主には、筆者が疑問に思う点や、ググってもなかなかまとまった答えが出てこない部分に着目して書いたものである。単純にどうやってコードを書くよりも、筆者なりに理解・説明・解釈を加えて行く予定ではあるが、必ずしも正しいわけではないことに要注意。筆者の進捗によって、週一あるいは隔週一の頻度でまとまってメモるものになるでしょう。&lt;/p&gt;
+&lt;h2 id=&#34;rとr-studioの準備作業&#34;&gt;RとR Studioの準備作業&lt;/h2&gt;
+&lt;p&gt;　詳細のインストール等の準備作業とよくある問題に会った時の対処法について、麦山亮太さんが日本語による説明が非常に詳細に書かれているので、&lt;a href=&#34;http://ryotamugiyama.com/2020/08/03/rinstall/&#34;&gt;そちら&lt;/a&gt;をご参照ください。&lt;/p&gt;
+&lt;h2 id=&#34;パッケージについて&#34;&gt;パッケージについて&lt;/h2&gt;
+&lt;h3 id=&#34;インストール&#34;&gt;インストール&lt;/h3&gt;
+&lt;p&gt;　分析上には、複数のパッケージを使用することとなるので、実際に使用する前に、それらをインストールする必要がある。パッケージをインストールする場合には、以下のコードが使用される。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;&lt;span class=&#34;nf&#34;&gt;install.packages&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;tidyverse&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;  
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt; &lt;div class=&#34;admonition tip&#34;&gt;&lt;p class=&#34;admonition-title&#34;&gt;tip&lt;/p&gt;
+&lt;p&gt;コマンドを実行するためのショートカットとして、&lt;br&gt;
+&lt;strong&gt;Windows&lt;/strong&gt;は&lt;kbd&gt;contrl&lt;/kbd&gt;+&lt;kbd&gt;enter&lt;/kbd&gt;で、&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Mac OS&lt;/strong&gt;は&lt;kbd&gt;command&lt;/kbd&gt;+&lt;kbd&gt;enter&lt;/kbd&gt;です。&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;一つずつインストールすると、非常に面倒な作業なので、ここでは初心者の筆者がよく使用される（使ったことがある）パッケージを一斎にインストールすることができるように以下のコードを作成した。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;&lt;span class=&#34;n&#34;&gt;useful.packages&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;c&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;tidyverse&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;broom&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;sna&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;
+                     &lt;span class=&#34;s&#34;&gt;&amp;#34;igraph&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;traminer&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;psych&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;span class=&#34;nf&#34;&gt;install.packages&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;useful.packages&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt; 
+                &lt;span class=&#34;n&#34;&gt;repos&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;https://cran.rstudio.com&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;これを、コピペして、ランしてください。少々時間がかかる可能性がある。&lt;/p&gt;
+&lt;h3 id=&#34;読み込む&#34;&gt;読み込む&lt;/h3&gt;
+&lt;p&gt;作業を行う前には、毎回R Studioを立ち上げたあと、最初に行うべきことは、パッケージの読み込むと考えている。パッケージが読み込まれないと、コードを書いても反応しないことがあるので、その場合には、読み込むことが忘れているかをチェックしましょう。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;&lt;span class=&#34;nf&#34;&gt;library&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;tidyverse&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;   
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;以上で準備作業が終わったので、次にデータをR Studioに導入してみよう。&lt;/p&gt;
+&lt;h2 id=&#34;データに関して&#34;&gt;データに関して&lt;/h2&gt;
+&lt;h3 id=&#34;独自の調査を行う&#34;&gt;独自の調査を行う&lt;/h3&gt;
+&lt;p&gt;実際の分析では、アンケート調査などで独自のデータを用意し、エクセル（一橋からアクセルあり）などを用いて、データの下処理を行うことが普通である。調査で得られた一人一人のデータ（個票データ）を、一つのファイルに統合し、R Studioに読み込む。&lt;/p&gt;
+&lt;h3 id=&#34;公開データを使用する&#34;&gt;公開データを使用する&lt;/h3&gt;
+&lt;p&gt;または、研究目的を達成するために、独自の調査を行うより、公開されている社会調査のデータを使用することはむしろ適切であるケースがあるでしょう。例えば、毎年行われている日本版総合社会調査&lt;a href=&#34;https://jgss.daishodai.ac.jp/surveys/sur_top.html&#34;&gt;(JGSS)&lt;/a&gt;、東京大学などで十年ごとに行われている、社会階層と社会移動に関する調査&lt;a href=&#34;http://www.l.u-tokyo.ac.jp/2015SSM-PJ/&#34;&gt;(SSM)&lt;/a&gt;などの調査データは、日本・世界中の複数のデータアーカイブに寄付され、特定の手順をへた後に、卒業論文や修士論文、博士論文などの使用されることが認められる。&lt;/p&gt;
+&lt;h3 id=&#34;データアーカイブ&#34;&gt;データアーカイブ&lt;/h3&gt;
+&lt;p&gt;以上のJGSSなどの公開データは、複数のデータアーカイブに寄付されている。例えば、日本国内における有名なデータアーカイブとして、&lt;a href=&#34;https://csrda.iss.u-tokyo.ac.jp/&#34;&gt;東京大学社会科学研究所付属社会調査・データアーカイブ研究センター&lt;/a&gt;があり、世界的には、アメリカのミシガン大学の政治・社会調査のための大学協会&lt;a href=&#34;https://www.icpsr.umich.edu/web/pages/ICPSR/index.html&#34;&gt;Inter-university Consortium for Political and Social Research, ICPSR&lt;/a&gt;があり、ドイツの&lt;a href=&#34;https://www.gesis.org/en/home&#34;&gt;GESIS – Leibniz Institute for the Social Sciences&lt;/a&gt;、中国の&lt;a href=&#34;http://www.cnsda.org/&#34;&gt;Chinese National Survey Data Archive&lt;/a&gt;などがある。&lt;br&gt;
+以上のデータアーカイブには、東大社研のデータにアクセスするために、事前に申請書を書かなければならないが、その他のアーカイブには、一橋のIDをログイン（ICPSR)か、アカウントを申請し、学術・教育にのみ使用される協議に同意することで、簡単に社会調査のデータをダウンロードすることができる。&lt;br&gt;
+このTutorialには、筆者個人の研究目的と、皆さんに実感を掴めるように、&lt;strong&gt;JGSS-2012&lt;/strong&gt;のデータを使用する。データのダウンロードには、以上の&lt;a href=&#34;https://www.icpsr.umich.edu/web/ICPSR/studies/36577&#34;&gt;ICPSR&lt;/a&gt;あるいは、&lt;a href=&#34;https://search.gesis.org/research_data/ZA6427&#34;&gt;GESIS&lt;/a&gt;で各自ダウンロードするようにしてください(検索結果のページに繋げてあるので、どれかをクリックしてください)。&lt;/p&gt;
+&lt;h3 id=&#34;projectを作成する&#34;&gt;Projectを作成する&lt;/h3&gt;
+&lt;p&gt;関わっている作業が増えて行ったり、取っている授業数が多くなったりすることで、それぞれの作業と授業ごとにフォルダーに分けて管理することが（私なりに）普通でしょう。R Studioのプロジェクトもまさに同じようなイメージで掴めれば良いと思われる。それぞれのデータや、分析結果、作成した図などを、別々のフォルダーに管理することで、わかりやすくなる。&lt;br&gt;
+Projectの作成に関する説明は、ここでは省略するが、具体的に&lt;a href=&#34;http://plaza.umin.ac.jp/~takeshou/R/RStudio1st.html&#34;&gt;このサイト&lt;/a&gt;をご参照。プロジェクトを作成できたら、以上でダウンローとしたデータをプロジェクトのフォルダーに保存しましょう。&lt;/p&gt;
+&lt;h3 id=&#34;データを読み込む&#34;&gt;データを読み込む&lt;/h3&gt;
+&lt;p&gt;以上の準備作業が完了したら、ダウンロードできたデータをR Studioに導入しましょう。普段皆さんがアクセスすることが多いデータの形式として、&lt;kbd&gt;.xlsx&lt;/kbd&gt;と&lt;kbd&gt;.xls&lt;/kbd&gt;のエクセルファイル、&lt;kbd&gt;.csv&lt;/kbd&gt;のCSVファイル、まれに&lt;kbd&gt;.sta&lt;/kbd&gt;のSTATAファイル、&lt;kbd&gt;.sav&lt;/kbd&gt;のSPSSファイル、そして、ICSPRからデータをアクセスした場合、&lt;kbd&gt;.rda&lt;/kbd&gt;のR専用のデータ形式もあるかと思います。&lt;br&gt;
+エクセルでデータの書類を行った場合、&lt;kbd&gt;.csv&lt;/kbd&gt;のCSVに変換して保存することがおすすめ。CSVファイルは、さまざまな統計ソフトや、プログラミング言語との相性がよく、エクセルファイルが起こりうる不具合も少ない。&lt;br&gt;
+では、それぞれのファイルをR Studioに導入しましょう。&lt;/p&gt;
+&lt;h4 id=&#34;csvファイル&#34;&gt;CSVファイル&lt;/h4&gt;
+&lt;p&gt;データの導入は、基本的に似たようなコマンドを実行します。CSVファイルの場合は、&lt;kbd&gt;read.csv&lt;/kbd&gt;は、Rの標準コードで、&lt;kbd&gt;read_csv&lt;/kbd&gt;は&lt;kbd&gt;tidyverse&lt;/kbd&gt;を読み込んだ場合に使えるコード。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-R&#34; data-lang=&#34;R&#34;&gt;&lt;span class=&#34;nf&#34;&gt;read.csv&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;JGSS-2012.csv&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;#ファイル名をそのままコピーし、.csvの拡張子も忘れずに。&lt;/span&gt;
+&lt;span class=&#34;nf&#34;&gt;read_csv&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;JGSS-2012.csv&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;#tidyverse的な書き方&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;このように、データを読み込んだだけでは、コンソール(console)でデータの状況に関する説明が表示されるだけなので、データをデータフレイムとして保存する必要がある。データフレイムを作るのに、個人の好みで、適当な名前をつけ、&lt;kbd&gt;&amp;lt;-&lt;/kbd&gt;を使って、データフレイムとしてR Studioに認識させる。&lt;/p&gt;
+&lt;div class=&#34;admonition tip&#34;&gt;&lt;p class=&#34;admonition-title&#34;&gt;tip&lt;/p&gt;
+&lt;p&gt;&lt;kbd&gt;&amp;lt;-&lt;/kbd&gt;のショートカットに関して、&lt;br&gt;
+&lt;strong&gt;Windows&lt;/strong&gt;は&lt;kbd&gt;shift&lt;/kbd&gt;+&lt;kbd&gt;＜&lt;/kbd&gt;で、&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Mac OS&lt;/strong&gt;は&lt;kbd&gt;option&lt;/kbd&gt;+&lt;kbd&gt;-&lt;/kbd&gt;です。&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;そこで、データをデータフレイムとして、R Studioに認識させるには、以下のコマンドを実行させる。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-R&#34; data-lang=&#34;R&#34;&gt;&lt;span class=&#34;n&#34;&gt;jgss2012&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;read.csv&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;JGSS-2012.csv&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;span class=&#34;n&#34;&gt;jgss2012&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;read_csv&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;JGSS-2012.csv&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;#どれかを走らせれば良い&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;以上のどれかのコマンドをランしたら、インターフェースの右上の&lt;strong&gt;Environment&lt;/strong&gt;欄の&lt;strong&gt;Data&lt;/strong&gt;の部分に、jgss2012が表示されるはず。&lt;/p&gt;
+&lt;h3 id=&#34;データの確認&#34;&gt;データの確認&lt;/h3&gt;
+&lt;p&gt;JGSSのような公開された社会調査データを使用する場合、必ず&lt;strong&gt;コードブック&lt;/strong&gt;というものがついてある。コードブックでは、それぞれの質問項目のコードや、欠損値の設定などを説明している。データをダウンロードする際には、コードブックも必ず確認しましょう。&lt;br&gt;
+では、データの導入ができたところ、きちんとデータフレイムとして認識されているかどうかを確認する。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;&lt;span class=&#34;nf&#34;&gt;head&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;jgss2012&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;このコマンドを実行すると、コンソールに非常に長い変数のリストが表示されたら、とりあえずおけ。&lt;br&gt;
+また、別に全体を見たいわけでもなく、特定の変数だけを確認したい場合は、&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;&lt;span class=&#34;nf&#34;&gt;head&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;jgss2012&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;$&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;sexa&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;を使用する。&lt;kbd&gt;＄&lt;/kbd&gt;は、データセットの中で&lt;kbd&gt;sexa&lt;/kbd&gt;という変数だけを取り出して、最初の何行くらいを確認する意味。このコマンドを実行すると、以下の内容が表示される。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;&lt;span class=&#34;nf&#34;&gt;head&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;jgss2012&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;$&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;sexa&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;span class=&#34;n&#34;&gt;[1]&lt;/span&gt; &lt;span class=&#34;m&#34;&gt;1&lt;/span&gt; &lt;span class=&#34;m&#34;&gt;1&lt;/span&gt; &lt;span class=&#34;m&#34;&gt;2&lt;/span&gt; &lt;span class=&#34;m&#34;&gt;2&lt;/span&gt; &lt;span class=&#34;m&#34;&gt;2&lt;/span&gt; &lt;span class=&#34;m&#34;&gt;2&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;複数の変数の状況を一回で確認したい場合は、&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;&lt;span class=&#34;nf&#34;&gt;head&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;jgss2012[2&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;5&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;]&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;#データセットの第二列から第五列のデータを取り出す&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;コンソールに２〜５列目のデータが表示される。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;8
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;&lt;span class=&#34;o&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&#34;nf&#34;&gt;head&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;jgss2012[2&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;m&#34;&gt;5&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;]&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+  &lt;span class=&#34;n&#34;&gt;size&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;size2k&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;sexa&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;dobyear&lt;/span&gt;
+&lt;span class=&#34;m&#34;&gt;1&lt;/span&gt;    &lt;span class=&#34;m&#34;&gt;3&lt;/span&gt;      &lt;span class=&#34;m&#34;&gt;2&lt;/span&gt;    &lt;span class=&#34;m&#34;&gt;1&lt;/span&gt;    &lt;span class=&#34;m&#34;&gt;1924&lt;/span&gt;
+&lt;span class=&#34;m&#34;&gt;2&lt;/span&gt;    &lt;span class=&#34;m&#34;&gt;1&lt;/span&gt;      &lt;span class=&#34;m&#34;&gt;1&lt;/span&gt;    &lt;span class=&#34;m&#34;&gt;1&lt;/span&gt;    &lt;span class=&#34;m&#34;&gt;1925&lt;/span&gt;
+&lt;span class=&#34;m&#34;&gt;3&lt;/span&gt;    &lt;span class=&#34;m&#34;&gt;2&lt;/span&gt;      &lt;span class=&#34;m&#34;&gt;2&lt;/span&gt;    &lt;span class=&#34;m&#34;&gt;2&lt;/span&gt;    &lt;span class=&#34;m&#34;&gt;1927&lt;/span&gt;
+&lt;span class=&#34;m&#34;&gt;4&lt;/span&gt;    &lt;span class=&#34;m&#34;&gt;3&lt;/span&gt;      &lt;span class=&#34;m&#34;&gt;2&lt;/span&gt;    &lt;span class=&#34;m&#34;&gt;2&lt;/span&gt;    &lt;span class=&#34;m&#34;&gt;1929&lt;/span&gt;
+&lt;span class=&#34;m&#34;&gt;5&lt;/span&gt;    &lt;span class=&#34;m&#34;&gt;3&lt;/span&gt;      &lt;span class=&#34;m&#34;&gt;2&lt;/span&gt;    &lt;span class=&#34;m&#34;&gt;2&lt;/span&gt;    &lt;span class=&#34;m&#34;&gt;1929&lt;/span&gt;
+&lt;span class=&#34;m&#34;&gt;6&lt;/span&gt;    &lt;span class=&#34;m&#34;&gt;2&lt;/span&gt;      &lt;span class=&#34;m&#34;&gt;2&lt;/span&gt;    &lt;span class=&#34;m&#34;&gt;2&lt;/span&gt;    &lt;span class=&#34;m&#34;&gt;1929&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;また、特定のいくつかの変数を確認したい場合、&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;&lt;span class=&#34;nf&#34;&gt;head&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;jgss2012&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;[c&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;sexa&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;ageb&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;,&lt;/span&gt;&lt;span class=&#34;s&#34;&gt;&amp;#34;dobyear&amp;#34;&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;]&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;#sexa, ageb, dobyearという三つの変数の先頭を取り出す&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;コンソールに性別、年齢、出生年の先頭情報が表示される。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;8
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&amp;gt; head(jgss2012[c(&amp;#34;sexa&amp;#34;,&amp;#34;ageb&amp;#34;,&amp;#34;dobyear&amp;#34;)])
+  sexa ageb dobyear
+1    1   87    1924
+2    1   86    1925
+3    2   84    1927
+4    2   82    1929
+5    2   82    1929
+6    2   82    1929
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;また、ヒストグラムを出して、目で尺度を確認することができる。&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;&lt;span class=&#34;nf&#34;&gt;hist&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;jgss2012&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;$&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;sexa&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;#jgss2012のデータセットの中のsexaの変数で、ヒストグラムを作る&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;このコマンドを実行すると、右下にヒストグラムが表示される。&lt;br&gt;
+&lt;img src=&#34;https://liaanghao.com/bfb/bfb1-1.png&#34; alt=&#34;1-1&#34; title=&#34;年齢分布&#34;&gt;&lt;/p&gt;
+&lt;p&gt;以上のヒストグラムを作るには、パイプ演算子&lt;kbd&gt;%&amp;gt;%&lt;/kbd&gt;という&lt;kbd&gt;tidyverse&lt;/kbd&gt;の機能を使って、以下のようにかける。&lt;/p&gt;
+&lt;div class=&#34;admonition tip&#34;&gt;&lt;p class=&#34;admonition-title&#34;&gt;tip&lt;/p&gt;
+&lt;p&gt;&lt;kbd&gt;%&amp;gt;%&lt;/kbd&gt;のショートカットとして、&lt;br&gt;
+&lt;strong&gt;Windows&lt;/strong&gt;は&lt;kbd&gt;Ctrl&lt;/kbd&gt;+&lt;kbd&gt;Shift&lt;/kbd&gt;+&lt;kbd&gt;m&lt;/kbd&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Mac OS&lt;/strong&gt;は&lt;kbd&gt;Control&lt;/kbd&gt;+&lt;kbd&gt;Shift&lt;/kbd&gt;+&lt;kbd&gt;m&lt;/kbd&gt;&lt;/p&gt;
+&lt;/div&gt;  
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;&lt;span class=&#34;n&#34;&gt;jgss2012&lt;/span&gt;&lt;span class=&#34;o&#34;&gt;$&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;sexa&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;%&amp;gt;%&lt;/span&gt; 
+  &lt;span class=&#34;nf&#34;&gt;hist&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;()&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;表示される図は以上のものと同じであるが、パイプ演算子を使用することで、データを前に出して、複雑なコマンドを書くときにわかりやすいのメリットがある。&lt;/p&gt;
+&lt;h3 id=&#34;変数名の変更&#34;&gt;変数名の変更&lt;/h3&gt;
+&lt;p&gt;JGSS2012には、変数が多いゆえに、変数名も長くておかしいフものの場合が多い。分析するときに、変数名をそのまま使ってもいいが、利便性の面から考えると、変数名の変更をおすすめする。変数名を変更するのに、以下のいくつかの方法がある。&lt;br&gt;
+まず、変数の名前を確認する&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;&lt;span class=&#34;nf&#34;&gt;names&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;jgss2012&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;  1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;  2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;  3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;  4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;  5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;  6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;  7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;  8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;  9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 13
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 14
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 15
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 16
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 17
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 18
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 19
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 20
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 21
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 22
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 23
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 24
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 25
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 26
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 27
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 28
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 29
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 30
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 31
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 32
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 33
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 34
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 35
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 36
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 37
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 38
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 39
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 40
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 41
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 42
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 43
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 44
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 45
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 46
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 47
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 48
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 49
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 50
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 51
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 52
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 53
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 54
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 55
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 56
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 57
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 58
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 59
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 60
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 61
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 62
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 63
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 64
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 65
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 66
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 67
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 68
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 69
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 70
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 71
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 72
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 73
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 74
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 75
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 76
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 77
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 78
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 79
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 80
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 81
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 82
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 83
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 84
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 85
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 86
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 87
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 88
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 89
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 90
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 91
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 92
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 93
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 94
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 95
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 96
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 97
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 98
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 99
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;100
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;101
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;102
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;103
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;104
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;105
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;106
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;107
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;108
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;109
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;110
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;111
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;112
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;113
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;114
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;115
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;116
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;117
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;118
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;119
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;120
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;121
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;122
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;123
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;124
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;125
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;126
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;127
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;128
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;129
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;130
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;131
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;132
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;133
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;134
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;135
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;136
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;137
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;138
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;139
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;140
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;141
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;142
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;143
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;144
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;145
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;146
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;147
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;148
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;149
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;150
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;151
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;152
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;153
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;154
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;155
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;156
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&amp;gt; names(jgss2012)
+  [1] &amp;#34;iduse&amp;#34;        &amp;#34;size&amp;#34;         &amp;#34;size2k&amp;#34;       &amp;#34;sexa&amp;#34;        
+  [5] &amp;#34;dobyear&amp;#34;      &amp;#34;ageb&amp;#34;         &amp;#34;marc&amp;#34;         &amp;#34;form&amp;#34;        
+  [9] &amp;#34;xjob1wk&amp;#34;      &amp;#34;xjobhwk&amp;#34;      &amp;#34;szsjbhwk&amp;#34;     &amp;#34;tpjb&amp;#34;        
+ [13] &amp;#34;tpjbs&amp;#34;        &amp;#34;tpjobp&amp;#34;       &amp;#34;tpjbse&amp;#34;       &amp;#34;docmt&amp;#34;       
+ [17] &amp;#34;szcmthr&amp;#34;      &amp;#34;szcmtmin&amp;#34;     &amp;#34;szcmttl&amp;#34;      &amp;#34;cmtwalk&amp;#34;     
+ [21] &amp;#34;cmtbcyl&amp;#34;      &amp;#34;cmtmcyl&amp;#34;      &amp;#34;cmtbus&amp;#34;       &amp;#34;cmttrain&amp;#34;    
+ [25] &amp;#34;cmtcar&amp;#34;       &amp;#34;cmtboat&amp;#34;      &amp;#34;cmtetc&amp;#34;       &amp;#34;tp4wpla&amp;#34;     
+ [29] &amp;#34;xxwpl&amp;#34;        &amp;#34;xxjob&amp;#34;        &amp;#34;xxjobe&amp;#34;       &amp;#34;xjobdwk&amp;#34;     
+ [33] &amp;#34;xjbsch&amp;#34;       &amp;#34;xjobyr&amp;#34;       &amp;#34;szttlsta&amp;#34;     &amp;#34;joinuni&amp;#34;     
+ [37] &amp;#34;st5job&amp;#34;       &amp;#34;wlkeepja&amp;#34;     &amp;#34;op4unemp&amp;#34;     &amp;#34;op3newjb&amp;#34;    
+ [41] &amp;#34;tp5unemp&amp;#34;     &amp;#34;xwork&amp;#34;        &amp;#34;agestpwk&amp;#34;     &amp;#34;xxstpjb&amp;#34;     
+ [45] &amp;#34;tplstjb&amp;#34;      &amp;#34;tplstjbs&amp;#34;     &amp;#34;tplstjbp&amp;#34;     &amp;#34;xxlstjb&amp;#34;     
+ [49] &amp;#34;xxlstjbe&amp;#34;     &amp;#34;szstfls&amp;#34;      &amp;#34;dolookjb&amp;#34;     &amp;#34;domarry&amp;#34;     
+ [53] &amp;#34;ssjb1wk&amp;#34;      &amp;#34;sstpunem&amp;#34;     &amp;#34;ssjbhrwk&amp;#34;     &amp;#34;sssjbhwk&amp;#34;    
+ [57] &amp;#34;sstpjb&amp;#34;       &amp;#34;sstpjbs&amp;#34;      &amp;#34;sstpjobp&amp;#34;     &amp;#34;sstpjbse&amp;#34;    
+ [61] &amp;#34;ssxxhqx&amp;#34;      &amp;#34;ssxxjob&amp;#34;      &amp;#34;ssxxjobe&amp;#34;     &amp;#34;ssjbdwk&amp;#34;     
+ [65] &amp;#34;ssxjbsch&amp;#34;     &amp;#34;ssszwkyr&amp;#34;     &amp;#34;ssszstfa&amp;#34;     &amp;#34;spagex&amp;#34;      
+ [69] &amp;#34;splvtg&amp;#34;       &amp;#34;pplvtg&amp;#34;       &amp;#34;mmlvtg&amp;#34;       &amp;#34;ppage&amp;#34;       
+ [73] &amp;#34;mmage&amp;#34;        &amp;#34;ppmg&amp;#34;         &amp;#34;mmmg&amp;#34;         &amp;#34;ppjob&amp;#34;       
+ [77] &amp;#34;mmjob&amp;#34;        &amp;#34;ccnumttl&amp;#34;     &amp;#34;cc01sex&amp;#34;      &amp;#34;cc02sex&amp;#34;     
+ [81] &amp;#34;cc03sex&amp;#34;      &amp;#34;cc04sex&amp;#34;      &amp;#34;cc05sex&amp;#34;      &amp;#34;cc06sex&amp;#34;     
+ [85] &amp;#34;cc07sex&amp;#34;      &amp;#34;cc08sex&amp;#34;      &amp;#34;cc09sex&amp;#34;      &amp;#34;cc10sex&amp;#34;     
+ [89] &amp;#34;cc11sex&amp;#34;      &amp;#34;cc01lvtg&amp;#34;     &amp;#34;cc02lvtg&amp;#34;     &amp;#34;cc03lvtg&amp;#34;    
+ [93] &amp;#34;cc04lvtg&amp;#34;     &amp;#34;cc05lvtg&amp;#34;     &amp;#34;cc06lvtg&amp;#34;     &amp;#34;cc07lvtg&amp;#34;    
+ [97] &amp;#34;cc08lvtg&amp;#34;     &amp;#34;cc09lvtg&amp;#34;     &amp;#34;cc10lvtg&amp;#34;     &amp;#34;cc11lvtg&amp;#34;    
+[101] &amp;#34;cc01age&amp;#34;      &amp;#34;cc02age&amp;#34;      &amp;#34;cc03age&amp;#34;      &amp;#34;cc04age&amp;#34;     
+[105] &amp;#34;cc05age&amp;#34;      &amp;#34;cc06age&amp;#34;      &amp;#34;cc07age&amp;#34;      &amp;#34;cc08age&amp;#34;     
+[109] &amp;#34;cc09age&amp;#34;      &amp;#34;cc10age&amp;#34;      &amp;#34;cc11age&amp;#34;      &amp;#34;cc01mg&amp;#34;      
+[113] &amp;#34;cc02mg&amp;#34;       &amp;#34;cc03mg&amp;#34;       &amp;#34;cc04mg&amp;#34;       &amp;#34;cc05mg&amp;#34;      
+[117] &amp;#34;cc06mg&amp;#34;       &amp;#34;cc07mg&amp;#34;       &amp;#34;cc08mg&amp;#34;       &amp;#34;cc09mg&amp;#34;      
+[121] &amp;#34;cc10mg&amp;#34;       &amp;#34;cc11mg&amp;#34;       &amp;#34;cc01job&amp;#34;      &amp;#34;cc02job&amp;#34;     
+[125] &amp;#34;cc03job&amp;#34;      &amp;#34;cc04job&amp;#34;      &amp;#34;cc05job&amp;#34;      &amp;#34;cc06job&amp;#34;     
+[129] &amp;#34;cc07job&amp;#34;      &amp;#34;cc08job&amp;#34;      &amp;#34;cc09job&amp;#34;      &amp;#34;cc10job&amp;#34;     
+[133] &amp;#34;cc11job&amp;#34;      &amp;#34;szffothr&amp;#34;     &amp;#34;ffh01rel&amp;#34;     &amp;#34;ffh02rel&amp;#34;    
+[137] &amp;#34;ffh03rel&amp;#34;     &amp;#34;ffh04rel&amp;#34;     &amp;#34;ffh05rel&amp;#34;     &amp;#34;ffh06rel&amp;#34;    
+[141] &amp;#34;ffh07rel&amp;#34;     &amp;#34;ffh08rel&amp;#34;     &amp;#34;ffh01sex&amp;#34;     &amp;#34;ffh02sex&amp;#34;    
+[145] &amp;#34;ffh03sex&amp;#34;     &amp;#34;ffh04sex&amp;#34;     &amp;#34;ffh05sex&amp;#34;     &amp;#34;ffh06sex&amp;#34;    
+[149] &amp;#34;ffh07sex&amp;#34;     &amp;#34;ffh08sex&amp;#34;     &amp;#34;ffh01age&amp;#34;     &amp;#34;ffh02age&amp;#34;    
+[153] &amp;#34;ffh03age&amp;#34;     &amp;#34;ffh04age&amp;#34;     &amp;#34;ffh05age&amp;#34;     &amp;#34;ffh06age&amp;#34;    
+[157] &amp;#34;ffh07age&amp;#34;     &amp;#34;ffh08age&amp;#34;     &amp;#34;szffonly&amp;#34;     &amp;#34;szffttl&amp;#34;     
+[161] &amp;#34;ffhead&amp;#34;       &amp;#34;szffout&amp;#34;      &amp;#34;ffo01rel&amp;#34;     &amp;#34;ffo02rel&amp;#34;    
+[165] &amp;#34;ffo03rel&amp;#34;     &amp;#34;ffo04rel&amp;#34;     &amp;#34;ffo05rel&amp;#34;     &amp;#34;ffo06rel&amp;#34;    
+[169] &amp;#34;ffo07rel&amp;#34;     &amp;#34;ffo01why&amp;#34;     &amp;#34;ffo02why&amp;#34;     &amp;#34;ffo03why&amp;#34;    
+[173] &amp;#34;ffo04why&amp;#34;     &amp;#34;ffo05why&amp;#34;     &amp;#34;ffo06why&amp;#34;     &amp;#34;ffo07why&amp;#34;    
+[177] &amp;#34;incself&amp;#34;      &amp;#34;incsp&amp;#34;        &amp;#34;incpar&amp;#34;       &amp;#34;incfam&amp;#34;      
+[181] &amp;#34;incpen&amp;#34;       &amp;#34;incueb&amp;#34;       &amp;#34;incsave&amp;#34;      &amp;#34;incsoc&amp;#34;      
+[185] &amp;#34;incirr&amp;#34;       &amp;#34;incrent&amp;#34;      &amp;#34;incother&amp;#34;     &amp;#34;incnokn&amp;#34;     
+[189] &amp;#34;incmain&amp;#34;      &amp;#34;op10lvl&amp;#34;      &amp;#34;sizehmt&amp;#34;      &amp;#34;szhsincm&amp;#34;    
+[193] &amp;#34;szincoma&amp;#34;     &amp;#34;szincomx&amp;#34;     &amp;#34;ssszinca&amp;#34;     &amp;#34;ssszincm&amp;#34;    
+[197] &amp;#34;xnumbroe&amp;#34;     &amp;#34;xnumsise&amp;#34;     &amp;#34;xnumbroy&amp;#34;     &amp;#34;xnumsisy&amp;#34;    
+[201] &amp;#34;xssnbroe&amp;#34;     &amp;#34;xssnsise&amp;#34;     &amp;#34;xssnbroy&amp;#34;     &amp;#34;xssnsisy&amp;#34;    
+[205] &amp;#34;tp5loc15&amp;#34;     &amp;#34;remote15&amp;#34;     &amp;#34;ppjb15&amp;#34;       &amp;#34;ppjbt15s&amp;#34;    
+[209] &amp;#34;ppjbt15p&amp;#34;     &amp;#34;ppjbxx15&amp;#34;     &amp;#34;ppjbsz15&amp;#34;     &amp;#34;mmjbtp15&amp;#34;    
+[213] &amp;#34;xxlstsch&amp;#34;     &amp;#34;sslstsch&amp;#34;     &amp;#34;pplstsch&amp;#34;     &amp;#34;mmlstsch&amp;#34;    
+[217] &amp;#34;dolstsch&amp;#34;     &amp;#34;agegrd&amp;#34;       &amp;#34;agedrp&amp;#34;       &amp;#34;xgrade&amp;#34;      
+[221] &amp;#34;xspsch&amp;#34;       &amp;#34;ssdolsts&amp;#34;     &amp;#34;ssagegrd&amp;#34;     &amp;#34;ssagedrp&amp;#34;    
+[225] &amp;#34;ssxgrade&amp;#34;     &amp;#34;pspsch&amp;#34;       &amp;#34;xgetjob&amp;#34;      &amp;#34;tp1stjb&amp;#34;     
+[229] &amp;#34;tp1stjbs&amp;#34;     &amp;#34;tpfstjbp&amp;#34;     &amp;#34;xxfstjb&amp;#34;      &amp;#34;szstffst&amp;#34;    
+[233] &amp;#34;xmarry&amp;#34;       &amp;#34;nummarry&amp;#34;     &amp;#34;age1mg&amp;#34;       &amp;#34;age2mg&amp;#34;      
+[237] &amp;#34;age3mg&amp;#34;       &amp;#34;age4mg&amp;#34;       &amp;#34;xdiv&amp;#34;         &amp;#34;fqxdiv&amp;#34;      
+[241] &amp;#34;age1div&amp;#34;      &amp;#34;age2div&amp;#34;      &amp;#34;age3div&amp;#34;      &amp;#34;xwidow&amp;#34;      
+[245] &amp;#34;fqwdw&amp;#34;        &amp;#34;age1wdw&amp;#34;      &amp;#34;age2wdw&amp;#34;      &amp;#34;xqtjbmrg&amp;#34;    
+[249] &amp;#34;xqtjbbth&amp;#34;     &amp;#34;xqtjbno&amp;#34;      &amp;#34;coop&amp;#34;         &amp;#34;ustand&amp;#34;      
+[253] &amp;#34;area&amp;#34;         &amp;#34;tphouse&amp;#34;      &amp;#34;autolock&amp;#34;     &amp;#34;proc&amp;#34;        
+[257] &amp;#34;duration&amp;#34;     &amp;#34;date&amp;#34;         &amp;#34;month&amp;#34;        &amp;#34;day&amp;#34;         
+[261] &amp;#34;dateb&amp;#34;        &amp;#34;monthb&amp;#34;       &amp;#34;dayb&amp;#34;         &amp;#34;hrtv&amp;#34;        
+[265] &amp;#34;fq5read&amp;#34;      &amp;#34;fq5newsp&amp;#34;     &amp;#34;docompj&amp;#34;      &amp;#34;docompp&amp;#34;     
+[269] &amp;#34;dophs&amp;#34;        &amp;#34;dononex&amp;#34;      &amp;#34;doinbrs&amp;#34;      &amp;#34;doinshop&amp;#34;    
+[273] &amp;#34;doinbank&amp;#34;     &amp;#34;doinhpb&amp;#34;      &amp;#34;doingame&amp;#34;     &amp;#34;doinnone&amp;#34;    
+[277] &amp;#34;fqsport&amp;#34;      &amp;#34;fq5trip&amp;#34;      &amp;#34;fq7ffdnr&amp;#34;     &amp;#34;fq7frsee&amp;#34;    
+[281] &amp;#34;fq7ckdnr&amp;#34;     &amp;#34;fq7wash&amp;#34;      &amp;#34;fq7shop&amp;#34;      &amp;#34;fq7clean&amp;#34;    
+[285] &amp;#34;fq7garb&amp;#34;      &amp;#34;fq4drive&amp;#34;     &amp;#34;fq4kara&amp;#34;      &amp;#34;fq4movie&amp;#34;    
+[289] &amp;#34;fq4music&amp;#34;     &amp;#34;fq4game&amp;#34;      &amp;#34;fq4green&amp;#34;     &amp;#34;fq4shgig&amp;#34;    
+[293] &amp;#34;fq4lotto&amp;#34;     &amp;#34;fq4pachi&amp;#34;     &amp;#34;op5hlthz&amp;#34;     &amp;#34;dosmokex&amp;#34;    
+[297] &amp;#34;xqtsmoke&amp;#34;     &amp;#34;do7drink&amp;#34;     &amp;#34;xtraum5y&amp;#34;     &amp;#34;st5areay&amp;#34;    
+[301] &amp;#34;st5leisy&amp;#34;     &amp;#34;st5lifey&amp;#34;     &amp;#34;st5ecny&amp;#34;      &amp;#34;st5friy&amp;#34;     
+[305] &amp;#34;st5hlthy&amp;#34;     &amp;#34;st5ssrel&amp;#34;     &amp;#34;op5happz&amp;#34;     &amp;#34;nofutr&amp;#34;      
+[309] &amp;#34;nogoal&amp;#34;       &amp;#34;sfmhpeac&amp;#34;     &amp;#34;sfmhengy&amp;#34;     &amp;#34;sfmhdprs&amp;#34;    
+[313] &amp;#34;colfav&amp;#34;       &amp;#34;colmod&amp;#34;       &amp;#34;ownhouse&amp;#34;     &amp;#34;doecslp&amp;#34;     
+[317] &amp;#34;doecmnp&amp;#34;      &amp;#34;doecwc&amp;#34;       &amp;#34;doeclmc&amp;#34;      &amp;#34;doecnone&amp;#34;    
+[321] &amp;#34;fq4denki&amp;#34;     &amp;#34;fq4elc&amp;#34;       &amp;#34;xliveyr&amp;#34;      &amp;#34;wllive&amp;#34;      
+[325] &amp;#34;xlrnjb&amp;#34;       &amp;#34;xlrncltr&amp;#34;     &amp;#34;ac10tutr&amp;#34;     &amp;#34;ac10xtra&amp;#34;    
+[329] &amp;#34;ac10comm&amp;#34;     &amp;#34;ac10cln&amp;#34;      &amp;#34;ac10fest&amp;#34;     &amp;#34;convpre&amp;#34;     
+[333] &amp;#34;convelem&amp;#34;     &amp;#34;convhigh&amp;#34;     &amp;#34;conv20s&amp;#34;      &amp;#34;conv40s&amp;#34;     
+[337] &amp;#34;conv60s&amp;#34;      &amp;#34;conv80s&amp;#34;      &amp;#34;numfrnd&amp;#34;      &amp;#34;frndsex&amp;#34;     
+[341] &amp;#34;frndgen&amp;#34;      &amp;#34;frndedu&amp;#34;      &amp;#34;frndinc&amp;#34;      &amp;#34;frndfrgn&amp;#34;    
+[345] &amp;#34;op3ecn3a&amp;#34;     &amp;#34;op5ffinx&amp;#34;     &amp;#34;opffix15&amp;#34;     &amp;#34;op5schpf&amp;#34;    
+[349] &amp;#34;op5chnca&amp;#34;     &amp;#34;op5pensn&amp;#34;     &amp;#34;op5levk&amp;#34;      &amp;#34;axecnsf&amp;#34;     
+[353] &amp;#34;op5srwfy&amp;#34;     &amp;#34;op5srmdy&amp;#34;     &amp;#34;op5cced&amp;#34;      &amp;#34;op5ccare&amp;#34;    
+[357] &amp;#34;op5radca&amp;#34;     &amp;#34;op6taxhi&amp;#34;     &amp;#34;q5gveqaa&amp;#34;     &amp;#34;xx8plpty&amp;#34;    
+[361] &amp;#34;oldpok&amp;#34;       &amp;#34;odpok&amp;#34;        &amp;#34;okomeiok&amp;#34;     &amp;#34;ocommpok&amp;#34;    
+[365] &amp;#34;osdpok&amp;#34;       &amp;#34;ominnaok&amp;#34;     &amp;#34;ootherok&amp;#34;     &amp;#34;onoplpok&amp;#34;    
+[369] &amp;#34;oplpdont&amp;#34;     &amp;#34;okokumok&amp;#34;     &amp;#34;otachiok&amp;#34;     &amp;#34;oshintok&amp;#34;    
+[373] &amp;#34;oishinok&amp;#34;     &amp;#34;desadmin&amp;#34;     &amp;#34;qfnrincr&amp;#34;     &amp;#34;fearwalk&amp;#34;    
+[377] &amp;#34;xrobbd1y&amp;#34;     &amp;#34;xstoln1y&amp;#34;     &amp;#34;appccnum&amp;#34;     &amp;#34;appccnmx&amp;#34;    
+[381] &amp;#34;appccsxb&amp;#34;     &amp;#34;op2gnr&amp;#34;       &amp;#34;q4savelc&amp;#34;     &amp;#34;q2tpp&amp;#34;       
+[385] &amp;#34;opcnsmtx&amp;#34;     &amp;#34;q4divok&amp;#34;      &amp;#34;q4wwjbia&amp;#34;     &amp;#34;q4wnmga&amp;#34;     
+[389] &amp;#34;q4mncook&amp;#34;     &amp;#34;q4wwhhx&amp;#34;      &amp;#34;q4mnmga&amp;#34;      &amp;#34;q4jbmmcc&amp;#34;    
+[393] &amp;#34;q4noccmg&amp;#34;     &amp;#34;q4wwhphh&amp;#34;     &amp;#34;opempf&amp;#34;       &amp;#34;opemp1c&amp;#34;     
+[397] &amp;#34;q5polint&amp;#34;     &amp;#34;q5cntsoc&amp;#34;     &amp;#34;opnbmtcn&amp;#34;     &amp;#34;opnbass&amp;#34;     
+[401] &amp;#34;q5slvprb&amp;#34;     &amp;#34;opcasino&amp;#34;     &amp;#34;op4trust&amp;#34;     &amp;#34;op7gdevo&amp;#34;    
+[405] &amp;#34;acptfrnd&amp;#34;     &amp;#34;acptleft&amp;#34;     &amp;#34;acptrght&amp;#34;     &amp;#34;acptcont&amp;#34;    
+[409] &amp;#34;tlkss&amp;#34;        &amp;#34;tlkpm&amp;#34;        &amp;#34;tlkcc&amp;#34;        &amp;#34;tlksib&amp;#34;      
+[413] &amp;#34;tlkboss&amp;#34;      &amp;#34;tlkcllg&amp;#34;      &amp;#34;tlkwrk&amp;#34;       &amp;#34;tlknb&amp;#34;       
+[417] &amp;#34;tlkfri&amp;#34;       &amp;#34;tlkno&amp;#34;        &amp;#34;wlvldo&amp;#34;       &amp;#34;mempltgp&amp;#34;    
+[421] &amp;#34;memind&amp;#34;       &amp;#34;memvlntr&amp;#34;     &amp;#34;memcivil&amp;#34;     &amp;#34;memrl&amp;#34;       
+[425] &amp;#34;memsport&amp;#34;     &amp;#34;memhobby&amp;#34;     &amp;#34;memcoop&amp;#34;      &amp;#34;fqnbas&amp;#34;      
+[429] &amp;#34;xvlimprt&amp;#34;     &amp;#34;xvlntenv&amp;#34;     &amp;#34;xvlsafe&amp;#34;      &amp;#34;xvlspts&amp;#34;     
+[433] &amp;#34;xvleld&amp;#34;       &amp;#34;xvlcc&amp;#34;        &amp;#34;xvlothr&amp;#34;      &amp;#34;xvlnone&amp;#34;     
+[437] &amp;#34;xvldisab&amp;#34;     &amp;#34;xdntreg&amp;#34;      &amp;#34;xdntbox&amp;#34;      &amp;#34;xdntsch&amp;#34;     
+[441] &amp;#34;xdntmass&amp;#34;     &amp;#34;xdntothr&amp;#34;     &amp;#34;xdntnone&amp;#34;     &amp;#34;szdnt&amp;#34;       
+[445] &amp;#34;tr3corpz&amp;#34;     &amp;#34;tr3rlgpz&amp;#34;     &amp;#34;tr3schlz&amp;#34;     &amp;#34;tr3bcraz&amp;#34;    
+[449] &amp;#34;tr3unnz&amp;#34;      &amp;#34;tr3nwspz&amp;#34;     &amp;#34;tr3hsplz&amp;#34;     &amp;#34;tr3tvz&amp;#34;      
+[453] &amp;#34;tr3spcaz&amp;#34;     &amp;#34;tr3acdaz&amp;#34;     &amp;#34;tr3cgmnz&amp;#34;     &amp;#34;tr3cityz&amp;#34;    
+[457] &amp;#34;tr3defz&amp;#34;      &amp;#34;tr3copz&amp;#34;      &amp;#34;tr3finz&amp;#34;      &amp;#34;q2dthpy&amp;#34;     
+[461] &amp;#34;dorl&amp;#34;         &amp;#34;xxrl&amp;#34;         &amp;#34;do3pious&amp;#34;     &amp;#34;disquake&amp;#34;    
+[465] &amp;#34;distsnm&amp;#34;      &amp;#34;disflood&amp;#34;     &amp;#34;disvolc&amp;#34;      &amp;#34;disland&amp;#34;     
+[469] &amp;#34;disnuc&amp;#34;       &amp;#34;axdis&amp;#34;        &amp;#34;opnucpol&amp;#34;     &amp;#34;opgovaqk&amp;#34;    
+[473] &amp;#34;opgovrec&amp;#34;     &amp;#34;supmoney&amp;#34;     &amp;#34;supgoods&amp;#34;     &amp;#34;suppurch&amp;#34;    
+[477] &amp;#34;supinv&amp;#34;       &amp;#34;supbonds&amp;#34;     &amp;#34;supvolin&amp;#34;     &amp;#34;supvolot&amp;#34;    
+[481] &amp;#34;supother&amp;#34;     &amp;#34;supno&amp;#34;        &amp;#34;chcopp&amp;#34;       &amp;#34;chcomm&amp;#34;      
+[485] &amp;#34;chcocc&amp;#34;       &amp;#34;chcoss&amp;#34;       &amp;#34;qkwrkhr&amp;#34;      &amp;#34;qkwrkred&amp;#34;    
+[489] &amp;#34;qkhome&amp;#34;       &amp;#34;qkbusday&amp;#34;     &amp;#34;qkovrtm&amp;#34;      &amp;#34;qkbnkown&amp;#34;    
+[493] &amp;#34;qkbnkcli&amp;#34;     &amp;#34;qkwgdwn&amp;#34;      &amp;#34;qkfired&amp;#34;      &amp;#34;qknorenw&amp;#34;    
+[497] &amp;#34;qkretire&amp;#34;     &amp;#34;qkot&amp;#34;         &amp;#34;qknoinf&amp;#34;      &amp;#34;qkunemp&amp;#34;     
+[501] &amp;#34;qkspow&amp;#34;       &amp;#34;qkshog&amp;#34;       &amp;#34;qkharr&amp;#34;       &amp;#34;qkdecus&amp;#34;     
+[505] &amp;#34;qkincb&amp;#34;       &amp;#34;qkincs&amp;#34;       &amp;#34;qkdwe&amp;#34;        &amp;#34;axfdrad&amp;#34;     
+[509] &amp;#34;enhmap&amp;#34;       &amp;#34;enhmwp&amp;#34;       &amp;#34;enhmsp&amp;#34;       &amp;#34;commdis&amp;#34;     
+[513] &amp;#34;optaxqk&amp;#34;      &amp;#34;op5hlthe&amp;#34;     &amp;#34;op5happe&amp;#34;     &amp;#34;jobnpo&amp;#34;      
+[517] &amp;#34;ssjbnpo&amp;#34;      &amp;#34;prtpltgp&amp;#34;     &amp;#34;prtnbas&amp;#34;      &amp;#34;prtvlntr&amp;#34;    
+[521] &amp;#34;prtcivil&amp;#34;     &amp;#34;prtrl&amp;#34;        &amp;#34;prtalum&amp;#34;      &amp;#34;prthobby&amp;#34;    
+[525] &amp;#34;prtunion&amp;#34;     &amp;#34;prtprof&amp;#34;      &amp;#34;prtmstat&amp;#34;     &amp;#34;orghiera&amp;#34;    
+[529] &amp;#34;orghomo&amp;#34;      &amp;#34;pintdfa&amp;#34;      &amp;#34;pintdot&amp;#34;      &amp;#34;nokinst&amp;#34;     
+[533] &amp;#34;ocpprof&amp;#34;      &amp;#34;ocplaw&amp;#34;       &amp;#34;ocpnurs&amp;#34;      &amp;#34;ocpcomp&amp;#34;     
+[537] &amp;#34;ocpteach&amp;#34;     &amp;#34;ocppers&amp;#34;      &amp;#34;ocpfarm&amp;#34;      &amp;#34;ocphair&amp;#34;     
+[541] &amp;#34;ocprcpt&amp;#34;      &amp;#34;ocppolic&amp;#34;     &amp;#34;acqabrd&amp;#34;      &amp;#34;acqfnr&amp;#34;      
+[545] &amp;#34;jbnetnum&amp;#34;     &amp;#34;jbnetuse&amp;#34;     &amp;#34;eatnkfq&amp;#34;      &amp;#34;eatnkhi&amp;#34;     
+[549] &amp;#34;eatnkdom&amp;#34;     &amp;#34;eatnksea&amp;#34;     &amp;#34;eatnknew&amp;#34;     &amp;#34;hlpwrry&amp;#34;     
+[553] &amp;#34;hlphlth&amp;#34;      &amp;#34;hlpcare&amp;#34;      &amp;#34;hlpfin&amp;#34;       &amp;#34;hlpdis&amp;#34;      
+[557] &amp;#34;nnbgreet&amp;#34;     &amp;#34;nnbfavor&amp;#34;     &amp;#34;sotoleq&amp;#34;      &amp;#34;sotolhi&amp;#34;     
+[561] &amp;#34;sotollo&amp;#34;      &amp;#34;meetenv&amp;#34;      &amp;#34;meetedu&amp;#34;      &amp;#34;meetsafe&amp;#34;    
+[565] &amp;#34;meetcons&amp;#34;     &amp;#34;volcomm&amp;#34;      &amp;#34;volsport&amp;#34;     &amp;#34;volvuln&amp;#34;     
+[569] &amp;#34;volother&amp;#34;     &amp;#34;volpol&amp;#34;       &amp;#34;volno&amp;#34;        &amp;#34;elcfam&amp;#34;      
+[573] &amp;#34;elcwork&amp;#34;      &amp;#34;elcnb&amp;#34;        &amp;#34;elcfri&amp;#34;       &amp;#34;elcrelig&amp;#34;    
+[577] &amp;#34;elchobby&amp;#34;     &amp;#34;elccamp&amp;#34;      &amp;#34;elcother&amp;#34;     &amp;#34;elcno&amp;#34;       
+[581] &amp;#34;tr4relat&amp;#34;     &amp;#34;tr4fri&amp;#34;       &amp;#34;tr4nb&amp;#34;        &amp;#34;tr4clg&amp;#34;      
+[585] &amp;#34;tr4strng&amp;#34;     &amp;#34;tr4phys&amp;#34;      &amp;#34;tr4bank&amp;#34;      &amp;#34;tr4exec&amp;#34;     
+[589] &amp;#34;tr4jrnl&amp;#34;      &amp;#34;tr4ngo&amp;#34;       &amp;#34;tr4teach&amp;#34;     &amp;#34;tr4locgv&amp;#34;    
+[593] &amp;#34;tr4cntgv&amp;#34;     &amp;#34;tr4polic&amp;#34;     &amp;#34;tr4sdf&amp;#34;       &amp;#34;tr4judge&amp;#34;    
+[597] &amp;#34;q7nopwr&amp;#34;      &amp;#34;q7gvcmpl&amp;#34;     &amp;#34;q7polint&amp;#34;     &amp;#34;q7cntsoc&amp;#34;    
+[601] &amp;#34;q7nbmtcn&amp;#34;     &amp;#34;q7nbass&amp;#34;      &amp;#34;q7slvprb&amp;#34;     &amp;#34;powchglf&amp;#34;    
+[605] &amp;#34;finbond&amp;#34;      &amp;#34;finfrgn&amp;#34;      &amp;#34;fininvtr&amp;#34;     &amp;#34;finstock&amp;#34;    
+[609] &amp;#34;finother&amp;#34;     &amp;#34;finno&amp;#34;        &amp;#34;weight&amp;#34;       &amp;#34;gender&amp;#34;      
+[613] &amp;#34;male_dummy&amp;#34;   &amp;#34;mentalhealth&amp;#34; &amp;#34;na.rm&amp;#34;        &amp;#34;educ&amp;#34;        
+[617] &amp;#34;urban&amp;#34;    
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;その中に、sexaの変数名をsexに変更したい場合は、以下のコマンドを実行する&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;&lt;span class=&#34;nf&#34;&gt;names&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;jgss2012&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;nf&#34;&gt;[names&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;jgss2012&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;==&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;sexa&amp;#34;&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;]&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;&amp;lt;-&lt;/span&gt; &lt;span class=&#34;s&#34;&gt;&amp;#34;sex&amp;#34;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;あるいは&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt;1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-r&#34; data-lang=&#34;r&#34;&gt;&lt;span class=&#34;n&#34;&gt;jgss2012&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;%&amp;gt;%&lt;/span&gt; 
+  &lt;span class=&#34;nf&#34;&gt;rename&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;n&#34;&gt;sex&lt;/span&gt; &lt;span class=&#34;o&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;n&#34;&gt;sexa&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;)&lt;/span&gt; &lt;span class=&#34;c1&#34;&gt;#左側に新しい名前、右側に古い名前&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;p&gt;以上で、今回のTutorialが終わります。&lt;/p&gt;
+&lt;p&gt;次回は、変数の作成、合併、サブセット、ダミー変数、合成変数と信頼度について取り扱う予定。&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
