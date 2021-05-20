@@ -17,7 +17,7 @@
       
       <guid>https://liaanghao.com/rtutorial/bfb02/</guid>
       <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;
-&lt;p&gt;　&lt;a href=&#34;https://liaanghao.com/rtutorial/bfb01.html&#34;&gt;前回&lt;/a&gt;では、パッケージの準備、データの読み込み、変数名の変更を行いました。本回では、引き続き、四則演算、変数の作成、合併について取り上げます。ここでは、すぐに使える、かつ私がいつも使っている手法を中心に紹介している予定ですが、ここで紹介されたもの以外にも、多様な手法があります。基本的には&lt;kbd&gt;tidyverse&lt;/kbd&gt;のパッケージによる処理方法をご紹介します。&lt;/p&gt;
+&lt;p&gt;　&lt;a href=&#34;https://liaanghao.com/rtutorial/bfb01&#34;&gt;前回&lt;/a&gt;では、パッケージの準備、データの読み込み、変数名の変更を行いました。本回では、引き続き、四則演算、変数の作成、合併について取り上げます。ここでは、すぐに使える、かつ私がいつも使っている手法を中心に紹介している予定ですが、ここで紹介されたもの以外にも、多様な手法があります。基本的には&lt;kbd&gt;tidyverse&lt;/kbd&gt;のパッケージによる処理方法をご紹介します。&lt;/p&gt;
 &lt;h2 id=&#34;データの準備&#34;&gt;データの準備&lt;/h2&gt;
 &lt;p&gt;　では、前回で用意できたプロジェクトを開けて、libraryを読み込んでください。&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
