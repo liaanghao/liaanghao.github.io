@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Beginner for Beginners 02: データと変数作成 - liaanghao.com</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="Hao Liang" /><meta name="description" content="Introduction 前回では、パッケージの準備、データの読み込み、変数名の変更を行いました。本回では、引き続き、四則演算、変数の作成、合併について取り上げます" /><meta name="keywords" content="Liang Hao, Hao Liang, Hao Liang Sociology, homepage, 梁昊, りょう, こう, 一橋, ひとつばし, 社会学, しゃかいがく, 都市社会学, とし" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.76.2 with theme even" />
+
+
+<link rel="canonical" href="https://liaanghao.com/rtutorial/bfb02/" />
+<link rel="apple-touch-icon" sizes="180x180" href="https://liaanghao.com/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://liaanghao.com/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="https://liaanghao.com/favicon-16x16.png">
+<link rel="manifest" href="https://liaanghao.com/manifest.json">
+<link rel="mask-icon" href="https://liaanghao.com/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="https://liaanghao.com/sass/main.min.3c2a92d6354aad9202d9bb4e5e83b5b659ac1f05b9dfb382cfc9a0a839e7e477.css" rel="stylesheet">
+
+
+
+<meta property="og:title" content="Beginner for Beginners 02: データと変数作成" />
+<meta property="og:description" content="Introduction 前回では、パッケージの準備、データの読み込み、変数名の変更を行いました。本回では、引き続き、四則演算、変数の作成、合併について取り上げます" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://liaanghao.com/rtutorial/bfb02/" />
+<meta property="article:published_time" content="2021-05-20T16:01:23+08:00" />
+<meta property="article:modified_time" content="2021-05-20T18:01:23+08:00" />
+<meta itemprop="name" content="Beginner for Beginners 02: データと変数作成">
+<meta itemprop="description" content="Introduction 前回では、パッケージの準備、データの読み込み、変数名の変更を行いました。本回では、引き続き、四則演算、変数の作成、合併について取り上げます">
+<meta itemprop="datePublished" content="2021-05-20T16:01:23+08:00" />
+<meta itemprop="dateModified" content="2021-05-20T18:01:23+08:00" />
+<meta itemprop="wordCount" content="2199">
+
+
+
+<meta itemprop="keywords" content="R,basics,deal with variables," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Beginner for Beginners 02: データと変数作成"/>
+<meta name="twitter:description" content="Introduction 前回では、パッケージの準備、データの読み込み、変数名の変更を行いました。本回では、引き続き、四則演算、変数の作成、合併について取り上げます"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="https://liaanghao.com/" class="logo">Hao Liang</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="https://liaanghao.com/research">
+        <li class="mobile-menu-item">Research</li>
+      </a><a href="https://liaanghao.com/rtutorial">
+        <li class="mobile-menu-item">RTutorial</li>
+      </a><a href="https://liaanghao.com/about/">
+        <li class="mobile-menu-item">About</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="https://liaanghao.com/" class="logo">Hao Liang</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="https://liaanghao.com/research">Research</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="https://liaanghao.com/rtutorial">RTutorial</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="https://liaanghao.com/about/">About</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">Beginner for Beginners 02: データと変数作成</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> May 20, 2021 </span>
+        <div class="post-category">
+            <a href="https://liaanghao.com/categories/beginnerforbeginners/"> beginnerforbeginners </a>
+            </div>
+        
+      </div>
+    </header>
+
+    
+    
+
+    
+    <div class="post-content">
+      <h2 id="introduction">Introduction</h2>
+<p>　<a href="https://liaanghao.com/rtutorial/bfb01.html">前回</a>では、パッケージの準備、データの読み込み、変数名の変更を行いました。本回では、引き続き、四則演算、変数の作成、合併について取り上げます。ここでは、すぐに使える、かつ私がいつも使っている手法を中心に紹介している予定ですが、ここで紹介されたもの以外にも、多様な手法があります。基本的には<kbd>tidyverse</kbd>のパッケージによる処理方法をご紹介します。</p>
+<h2 id="データの準備">データの準備</h2>
+<p>　では、前回で用意できたプロジェクトを開けて、libraryを読み込んでください。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">library</span><span class="p">(</span><span class="s">&#34;tidyverse&#34;</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>　プロジェクトには、jgss2012のデータが確実に入ってあることを確認しましょう。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">view</span><span class="p">(</span><span class="n">jgss2012</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>以上のコードを走らせることで、データセットの新しいウィンドが自動的に開かれ、データの中身について確認できます。なんとなくデータがちゃんと入ってあることを確認できたら、スクリプトに戻って、今回の内容をやってみましょう。<br>
+または、R Studioの右にあるデータ欄から、jgss2012をクリックして、データセットを確認することもできます。</p>
+<h2 id="四則演算">四則演算</h2>
+<p>Rでは、もちろん四则运算ができます。数値による四则运算はもちろん、変数間の四则运算もできます。四则运算によって、新しい合成変数などを作成することができます。<br>
+例えば、<kbd>dobyear</kbd>という出生年度から年齢を算出したい場合は、</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-r" data-lang="r"><span class="n">jgss2012</span><span class="o">$</span><span class="n">age</span> <span class="o">&lt;-</span> <span class="m">2011</span><span class="o">-</span><span class="n">jgss2012</span><span class="o">$</span><span class="n">dobyear</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>と打ちます。前回で説明したように、<kbd>&lt;-</kbd>は付与する意味で、調査を行なった年<strong>2011</strong>から出生年度を引いた結果を、左のageという変数に書き込むということを指します。<br>
+演算したら、データがきちんと入っているかをチェックしましょう。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-r" data-lang="r"><span class="n">jgss2012</span><span class="o">$</span><span class="n">age</span> <span class="o">%&gt;%</span> 
+  <span class="nf">str</span><span class="p">()</span>
+</code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>num [1:4667] 87 86 84 82 82 82 81 81 80 80 &hellip;</p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-r" data-lang="r"><span class="n">jgss2012</span><span class="o">$</span><span class="n">age</span> <span class="o">%&gt;%</span> 
+  <span class="nf">head</span><span class="p">()</span>
+</code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>[1] 87 86 84 82 82 82</p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-r" data-lang="r"><span class="n">jgss2012</span><span class="o">$</span><span class="n">age</span> <span class="o">%&gt;%</span> 
+  <span class="nf">table</span><span class="p">()</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>以上の三つの方法が少なくともデータがきちんと入っているかを確認することができる。以上のいずれかで確認したら良いと思います。</p>
+<h2 id="変数の作成">変数の作成</h2>
+<p>これから実際の分析を行う前には、欠損値などの前処理をする必要ができています。<strong>JGSS</strong>のような社会調査データでは、基本的に欠損値や「わからない」の答えを「999」などの数値で入力されるケースがほとんどである。この場合には、コードブックを参照しながら、データの前処理を行いましょう。</p>
+<h3 id="欠損値の処理">欠損値の処理</h3>
+<p>欠損値の処理には、多くの方法がありますが、ここで<kbd>dyplr</kbd>を使用する方法と、一般的な方法(?)の二種類を紹介します。<br>
+まず、標準関数を使用すると、以下のコードを使用します。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-r" data-lang="r"><span class="n">jgss2012</span><span class="o">$</span><span class="n">xjobhwk[jgss2012</span><span class="o">$</span><span class="n">xjobhwk</span> <span class="o">==</span> <span class="m">888</span> 
+　　　　　　　　　<span class="o">|</span> <span class="n">jgss2012</span><span class="o">$</span><span class="n">xjobhwk</span> <span class="o">==</span> <span class="m">999</span><span class="n">]</span> <span class="o">&lt;-</span> <span class="kc">NA</span>　<span class="c1"># |はあるいはの意味</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>ここでは、888→わからない、999→無回答の二つの欠損値があるので、その二者を同時に処理すると、あるいはの意味で、<kbd>|</kbd>を入れます。このコードは、jgss2012のデータセットの中の<kbd>xjobhwk</kbd>という変数のなかの、888と999を欠損値<kbd>NA</kbd>として処理してください、ということです。</p>
+<p>また、<kbd>dyplr</kbd>を使用する場合、<kbd>na_if</kbd>の関数を使用します。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-r" data-lang="r"><span class="n">jgss2012</span> <span class="o">&lt;-</span> <span class="n">jgss2012</span> <span class="o">%&gt;%</span> 
+  <span class="nf">mutate</span><span class="p">(</span><span class="n">xliveyr</span> <span class="o">=</span> <span class="nf">na_if</span><span class="p">(</span><span class="n">xliveyr</span><span class="p">,</span> <span class="m">99</span><span class="p">))</span>
+
+<span class="n">jgss2012</span><span class="o">$</span><span class="n">xliveyr</span> <span class="o">%&gt;%</span> 
+  <span class="nf">table</span><span class="p">()</span>
+</code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>| 1  |  2  |  3 |  4  |  5  |  6   | 7  |  8  |<br>
+| :&mdash;-: | :&mdash;-: | | :&mdash;-: | :&mdash;-: | | :&mdash;-: | :&mdash;-: | | :&mdash;-: | :&mdash;-: |
+|774  |111 | 253 | 204 | 454 | 800|  668| 1393|</p>
+</blockquote>
+<p>ここでは、99という欠損値が存在する変数<kbd>xliveyr</kbd>を、<kbd>mutate</kbd>関数で処理した。意味としては、jgss2012のデータセットの中の<kbd>xliveyr</kbd>という変数のなかの、全ての99を欠損値として変換してください。という意味です。</p>
+<h3 id="変数の変換">変数の変換</h3>
+<p>以上では、欠損値の処理方法について紹介しました。これからは、変数の変換とりわけ値の再付与について取り上げます。<br>
+</space>JGSS2012の性別を例にします。性別では１→男性、２→女性として、データセットに入っていることをまず確認してみましょう。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-r" data-lang="r"><span class="n">jgss2012</span><span class="o">$</span><span class="n">sexa</span> <span class="o">%&gt;%</span> 
+  <span class="nf">table</span><span class="p">()</span>
+</code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">1</th>
+<th style="text-align:center">2　</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">2148</td>
+<td style="text-align:center">2519</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+<p>このような２値を、１と０に男性ダミー変数を作ると、以下のようなコードを書きます。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-r" data-lang="r"><span class="n">jgss2012</span> <span class="o">&lt;-</span> <span class="n">jgss2012</span> <span class="o">%&gt;%</span> 
+  <span class="nf">mutate</span><span class="p">(</span><span class="n">male_dummy</span> <span class="o">=</span> <span class="nf">case_when</span><span class="p">(</span><span class="n">sexa</span> <span class="o">==</span> <span class="m">2</span> <span class="o">~</span> <span class="m">0</span><span class="p">,</span>
+                                <span class="n">sexa</span> <span class="o">==</span> <span class="m">1</span> <span class="o">~</span> <span class="m">1</span><span class="p">))</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>ここでも、<kbd>dyplr</kbd>パッケージの中の<kbd>mutate</kbd>関数を使用しています。今回は、<strong>na_if</strong>という欠損値を処理する関数ではなく、<strong>case_when</strong>という条件文を使用します。<br>
+ここでは、JGSS2012のデータセットのにあらため<kbd>male_dummy</kbd>という変数を作って、<kbd>sexa</kbd>の変数の中の1を1のままとして、2を0に変換する意味です。また、この変換は、文字型でも使用できます。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-r" data-lang="r"><span class="n">jgss2012</span> <span class="o">&lt;-</span> <span class="n">jgss2012</span> <span class="o">%&gt;%</span> 
+  <span class="nf">mutate</span><span class="p">(</span><span class="n">gender</span> <span class="o">=</span> <span class="nf">case_when</span><span class="p">(</span><span class="n">sexa</span> <span class="o">==</span> <span class="m">1</span> <span class="o">~</span> <span class="s">&#34;男&#34;</span><span class="p">,</span>
+                            <span class="n">sexa</span> <span class="o">==</span> <span class="m">2</span> <span class="o">~</span> <span class="s">&#34;女&#34;</span><span class="p">))</span>
+<span class="n">jgss2012</span><span class="o">$</span><span class="n">gender</span> <span class="o">%&gt;%</span> 
+  <span class="nf">table</span><span class="p">()</span>
+</code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">女</th>
+<th style="text-align:center">男</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">2519</td>
+<td style="text-align:center">2148</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+<h2 id="変数の作成-1">変数の作成</h2>
+<p>それから、データセットの中から、条件に相応しい項目だけを抽出して新しい変数を生成したりすることができます。<br>
+例えば、男性で、65歳以上のサンプルを抽出して、OBとして新しいダミー変数を作成したい場合は、以下のコマンドでできます。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-r" data-lang="r"><span class="n">jgss2012</span><span class="o">$</span><span class="n">ob</span> <span class="o">&lt;-</span> <span class="kc">NA</span>
+<span class="n">jgss2012</span><span class="o">$</span><span class="n">ob[jgss2012</span><span class="o">$</span><span class="n">male_dummy</span> <span class="o">==</span> <span class="m">1</span> <span class="o">&amp;</span> <span class="n">jgss2012</span><span class="o">$</span><span class="n">ageb</span> <span class="o">&gt;</span> <span class="m">65</span><span class="n">]</span> <span class="o">&lt;-</span> <span class="m">1</span>
+<span class="n">jgss2012</span><span class="o">$</span><span class="n">ob</span> <span class="o">%&gt;%</span> 
+  <span class="nf">table</span><span class="p">()</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>まず、OBという変数をあらかじめ作り、男性ダミーが１と年齢が65以上の条件にあうサンプルだけに１を付与する意味です。　　</p>
+<p>それから、サンプルの中で、どれかに合えば良いケースもあるでしょう。その場合には、前節で取り上げた<kbd>|</kbd>を使用します。<br>
+例えば、ここで、学歴について、初等教育、中等教育、高等教育について分けたい場合は、以下のように、それぞれについて付与します。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-r" data-lang="r"><span class="n">jgss2012</span><span class="o">$</span><span class="n">educ</span> <span class="o">&lt;-</span> <span class="kc">NA</span>
+<span class="n">jgss2012</span><span class="o">$</span><span class="n">educ[jgss2012</span><span class="o">$</span><span class="n">xxlstsch</span> <span class="o">==</span> <span class="m">1</span><span class="o">|</span><span class="n">jgss2012</span><span class="o">$</span><span class="n">xxlstsch</span> <span class="o">==</span> <span class="m">2</span><span class="o">|</span>
+                <span class="n">jgss2012</span><span class="o">$</span><span class="n">xxlstsch</span> <span class="o">==</span> <span class="m">3</span><span class="o">|</span><span class="n">jgss2012</span><span class="o">$</span><span class="n">xxlstsch</span> <span class="o">==</span> <span class="m">8</span><span class="n">]</span> <span class="o">&lt;-</span> <span class="s">&#34;primary&#34;</span>
+<span class="n">jgss2012</span><span class="o">$</span><span class="n">educ[jgss2012</span><span class="o">$</span><span class="n">xxlstsch</span> <span class="o">==</span> <span class="m">4</span><span class="o">|</span><span class="n">jgss2012</span><span class="o">$</span><span class="n">xxlstsch</span> <span class="o">==</span> <span class="m">5</span><span class="o">|</span>
+                <span class="n">jgss2012</span><span class="o">$</span><span class="n">xxlstsch</span> <span class="o">==</span> <span class="m">6</span><span class="o">|</span><span class="n">jgss2012</span><span class="o">$</span><span class="n">xxlstsch</span> <span class="o">==</span> <span class="m">9</span><span class="o">|</span>
+                <span class="n">jgss2012</span><span class="o">$</span><span class="n">xxlstsch</span> <span class="o">==</span> <span class="m">10</span><span class="o">|</span><span class="n">jgss2012</span><span class="o">$</span><span class="n">xxlstsch</span> <span class="o">==</span> <span class="m">11</span><span class="n">]</span> <span class="o">&lt;-</span> <span class="s">&#34;secondary&#34;</span>
+<span class="n">jgss2012</span><span class="o">$</span><span class="n">educ[jgss2012</span><span class="o">$</span><span class="n">xxlstsch</span> <span class="o">==</span> <span class="m">7</span><span class="o">|</span><span class="n">jgss2012</span><span class="o">$</span><span class="n">xxlstsch</span> <span class="o">==</span> <span class="m">12</span><span class="o">|</span> 　　　　　　　　　　<span class="n">jgss2012</span><span class="o">$</span><span class="n">xxlstsch</span> <span class="o">==</span><span class="m">13</span><span class="n">]</span> <span class="o">&lt;-</span> <span class="s">&#34;tertiary&#34;</span>
+
+</code></pre></td></tr></table>
+</div>
+</div><p>また、もっと簡潔な方法について、slackをご参照ください（次回追加）。</p>
+<p>では、今日はここまで。</p>
+
+    </div>
+
+    
+
+    
+
+    <footer class="post-footer">
+      <div class="post-tags">
+          <a href="https://liaanghao.com/tags/r/">R</a>
+          <a href="https://liaanghao.com/tags/basics/">basics</a>
+          <a href="https://liaanghao.com/tags/deal-with-variables/">deal with variables</a>
+          </div>
+      <nav class="post-nav">
+        
+        <a class="next" href="https://liaanghao.com/rtutorial/bfb01/">
+            <span class="next-text nav-default">Beginner for Beginners 01: データと準備作業</span>
+            <span class="next-text nav-mobile">Next</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" href="https://gohugo.io">Hugo</a>
+   <span class="copyright-year">
+    &copy; 
+    2020 - 
+    2021<embed text="  ">
+   Hao Liang
+    </embed><span text="   ">
+  <embed class="social-links">
+        <a href="mailto:liaang.hao@gmail.com" class="iconfont icon-email" title="email"></a>
+        <a href="http://github.com/liaanghao" class="iconfont icon-github" title="github"></a>
+  </span>
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+
+
+
+<script type="text/javascript" src="https://liaanghao.com/js/main.min.c12618f9a600c40bd024996677e951e64d3487006775aeb22e200c990006c5c7.js"></script>
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-180283380-1', 'auto');
+	ga('set', 'anonymizeIp', true);
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+
+
+
+
+
+</body>
+</html>
