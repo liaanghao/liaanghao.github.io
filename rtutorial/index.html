@@ -45,7 +45,7 @@
 <meta property="og:description" content="Hao Liang&#39;s Homepage" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://liaanghao.com/rtutorial/" />
-<meta property="og:updated_time" content="2021-05-20T18:01:23+08:00" />
+<meta property="og:updated_time" content="2021-06-03T18:01:23+08:00" />
 <meta itemprop="name" content="Rtutorials">
 <meta itemprop="description" content="Hao Liang&#39;s Homepage">
 <meta name="twitter:card" content="summary"/>
@@ -111,6 +111,364 @@
       <div class="collection-title">
         <h2 class="archive-year">2021</h2>
       </div>
+
+    <article class="post">
+      <span class="archive-post-time">
+        June 3
+      </span>
+      <h2><span class="post-title">
+        <a href="https://liaanghao.com/rtutorial/bfb03/" class="archive-post-link">
+          Beginner for Beginners 03: データ作成と合成変数
+        </a>
+      </span></h2>
+      <div class="post-content">
+      <p><h2 id="introduction">Introduction</h2>
+<p>　今日は、<a href="https://liaanghao.com/rtutorial/bfb02">前回</a>残っていたファクター変数の作成のもう一つの手法について説明した上、合成変数の作成と信頼度について取り上げます。実際には、因子分析などを経て、合成変数を作成することは普通ではありますが、とりあえず、データの作成の部分で合成変数の作成の仕方、信頼性の判断の仕方について書きます。</p>
+<h2 id="データの作成">データの作成</h2>
+<p>前回で、<kbd>|</kbd>を使ったデータの作成の仕方について、学歴を例として以下のように書きました。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-r" data-lang="r"><span class="n">jgss2012</span><span class="o">$</span><span class="n">educ</span> <span class="o">&lt;-</span> <span class="kc">NA</span>
+<span class="n">jgss2012</span><span class="o">$</span><span class="n">educ[jgss2012</span><span class="o">$</span><span class="n">xxlstsch</span> <span class="o">==</span> <span class="m">1</span><span class="o">|</span><span class="n">jgss2012</span><span class="o">$</span><span class="n">xxlstsch</span> <span class="o">==</span> <span class="m">2</span><span class="o">|</span>
+                <span class="n">jgss2012</span><span class="o">$</span><span class="n">xxlstsch</span> <span class="o">==</span> <span class="m">3</span><span class="o">|</span><span class="n">jgss2012</span><span class="o">$</span><span class="n">xxlstsch</span> <span class="o">==</span> <span class="m">8</span><span class="n">]</span> <span class="o">&lt;-</span> <span class="s">&#34;primary&#34;</span>
+<span class="n">jgss2012</span><span class="o">$</span><span class="n">educ[jgss2012</span><span class="o">$</span><span class="n">xxlstsch</span> <span class="o">==</span> <span class="m">4</span><span class="o">|</span><span class="n">jgss2012</span><span class="o">$</span><span class="n">xxlstsch</span> <span class="o">==</span> <span class="m">5</span><span class="o">|</span>
+                <span class="n">jgss2012</span><span class="o">$</span><span class="n">xxlstsch</span> <span class="o">==</span> <span class="m">6</span><span class="o">|</span><span class="n">jgss2012</span><span class="o">$</span><span class="n">xxlstsch</span> <span class="o">==</span> <span class="m">9</span><span class="o">|</span>
+                <span class="n">jgss2012</span><span class="o">$</span><span class="n">xxlstsch</span> <span class="o">==</span> <span class="m">10</span><span class="o">|</span><span class="n">jgss2012</span><span class="o">$</span><span class="n">xxlstsch</span> <span class="o">==</span> <span class="m">11</span><span class="n">]</span> <span class="o">&lt;-</span> <span class="s">&#34;secondary&#34;</span>
+<span class="n">jgss2012</span><span class="o">$</span><span class="n">educ[jgss2012</span><span class="o">$</span><span class="n">xxlstsch</span> <span class="o">==</span> <span class="m">7</span><span class="o">|</span><span class="n">jgss2012</span><span class="o">$</span><span class="n">xxlstsch</span> <span class="o">==</span> <span class="m">12</span><span class="o">|</span>  
+                <span class="n">jgss2012</span><span class="o">$</span><span class="n">xxlstsch</span> <span class="o">==</span><span class="m">13</span><span class="n">]</span> <span class="o">&lt;-</span> <span class="s">&#34;tertiary&#34;</span>
+
+</code></pre></td></tr></table>
+</div>
+</div><p>これでも、そのまま使えますが、何回も変数名のコピペをしないといけないという煩雑な作業があります。そこで、もっと簡単にやりたい場合には、<kbd>%in%</kbd>を使用します。この演算子は、簡単にいうと「含まれる」という意味です。</p>
+<p>そこで、この演算子を使って、新しい変数を作成すると、こうなります。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-r" data-lang="r"><span class="n">jgss2012</span><span class="o">$</span><span class="n">educ</span> <span class="o">&lt;-</span> <span class="n">jgss2012</span><span class="o">$</span><span class="n">xxlstsch</span> <span class="c1">#そのままxxlstschのデータをeducという変数にコピーする</span>
+<span class="n">jgss2012</span><span class="o">$</span><span class="n">educ[jgss2012</span><span class="o">$</span><span class="n">educ</span> <span class="o">%in%</span> <span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">2</span><span class="p">,</span><span class="m">3</span><span class="p">,</span><span class="m">8</span><span class="p">)</span><span class="n">]</span> <span class="o">&lt;-</span> <span class="s">&#34;primary&#34;</span>
+<span class="n">jgss2012</span><span class="o">$</span><span class="n">educ[jgss2012</span><span class="o">$</span><span class="n">educ</span> <span class="o">%in%</span> <span class="nf">c</span><span class="p">(</span><span class="m">4</span><span class="p">,</span><span class="m">5</span><span class="p">,</span><span class="m">6</span><span class="p">,</span><span class="m">9</span><span class="p">,</span><span class="m">10</span><span class="p">,</span><span class="m">11</span><span class="p">)</span><span class="n">]</span> <span class="o">&lt;-</span> <span class="s">&#34;secondary&#34;</span>
+<span class="n">jgss2012</span><span class="o">$</span><span class="n">educ[jgss2012</span><span class="o">$</span><span class="n">educ</span> <span class="o">%in%</span> <span class="nf">c</span><span class="p">(</span><span class="m">7</span><span class="p">,</span><span class="m">12</span><span class="p">,</span><span class="m">13</span><span class="p">)</span><span class="n">]</span> <span class="o">&lt;-</span> <span class="s">&#34;tertiary&#34;</span>
+<span class="n">jgss2012</span><span class="o">$</span><span class="n">educ[jgss2012</span><span class="o">$</span><span class="n">educ</span> <span class="o">%in%</span> <span class="nf">c</span><span class="p">(</span><span class="m">14</span><span class="p">,</span> <span class="m">99</span><span class="p">)</span><span class="n">]</span> <span class="o">&lt;-</span> <span class="kc">NA</span>  
+</code></pre></td></tr></table>
+</div>
+</div><p>このように、学歴が<kbd>%in%</kbd>の後の数値のどれかと一致する場合、<kbd>←</kbd>の後の文字列で入れ替わるという意味です。</p>
+<p>また、それぞれの数値を事前に定義してから、<kbd>%in%</kbd>を用いることもできます。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-r" data-lang="r"><span class="n">primary</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">2</span><span class="p">,</span><span class="m">3</span><span class="p">,</span><span class="m">8</span><span class="p">)</span>
+<span class="n">secondary</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="m">4</span><span class="p">,</span><span class="m">5</span><span class="p">,</span><span class="m">6</span><span class="p">,</span><span class="m">9</span><span class="p">,</span><span class="m">10</span><span class="p">,</span><span class="m">11</span><span class="p">)</span>
+<span class="n">tertiary</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="m">7</span><span class="p">,</span><span class="m">12</span><span class="p">,</span><span class="m">13</span><span class="p">)</span>
+<span class="n">na</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="m">14</span><span class="p">,</span> <span class="m">99</span><span class="p">)</span>
+<span class="n">jgss2012</span><span class="o">$</span><span class="n">educ[jgss2012</span><span class="o">$</span><span class="n">educ</span> <span class="o">%in%</span> <span class="n">primary]</span> <span class="o">&lt;-</span> <span class="s">&#34;primary&#34;</span>
+<span class="n">jgss2012</span><span class="o">$</span><span class="n">educ[jgss2012</span><span class="o">$</span><span class="n">educ</span> <span class="o">%in%</span> <span class="n">secondary]</span> <span class="o">&lt;-</span> <span class="s">&#34;secondary&#34;</span>
+<span class="n">jgss2012</span><span class="o">$</span><span class="n">educ[jgss2012</span><span class="o">$</span><span class="n">educ</span> <span class="o">%in%</span> <span class="n">tertiary]</span> <span class="o">&lt;-</span> <span class="s">&#34;tertiary&#34;</span>
+<span class="n">jgss2012</span><span class="o">$</span><span class="n">educ[jgss2012</span><span class="o">$</span><span class="n">educ</span> <span class="o">%in%</span> <span class="n">na]</span> <span class="o">&lt;-</span> <span class="kc">NA</span>  
+</code></pre></td></tr></table>
+</div>
+</div><p>このようなやり方でもできます。実行したら、データの確認をしましょう。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-r" data-lang="r"><span class="n">jgss2012</span><span class="o">$</span><span class="n">educ</span> <span class="o">%&gt;%</span> 
+  <span class="nf">table</span><span class="p">()</span>  
+</code></pre></td></tr></table>
+</div>
+</div><p>間違っていなければ、以下のようなテーブルが返ってくるはずです。　　</p>
+<blockquote>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">primary</th>
+<th style="text-align:center">secondary</th>
+<th style="text-align:center">tertiary</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">809</td>
+<td style="text-align:center">2752</td>
+<td style="text-align:center">1085</td>
+</tr>
+<tr>
+<td style="text-align:center">以上、<kbd>%in%</kbd>の使い方でした（slack参照）。</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+<h2 id="合成変数と信頼性">合成変数と信頼性</h2>
+<p><strong>JGSS</strong>のような社会調査を行う場合、特定の一つの測定したい尺度に、複数の質問項目を設けることがある。このような複数の項目を分析する際に、一つの尺度に統合してからの方が分析しやすく、結果の解釈もしやすくなるかと思います。ここでは、このような変数を合成変数としています。基本的に合成変数を作る際には、質問項目の結果の和を項目数で割リます。</p>
+<p>ここで考えないといけないことは、このいくつかの質問項目は、本当に同じ尺度について聞いているのかという項目の内部統合性の問題があります。そこで、Cronbach \alpha で判断します。この\alphaは0から1までの値をとり、値が大きければ大きいほど、データ内部の統合性が良いという意味です。これに関する具体的な説明を省きますが、出し方と判断の仕方について説明します。</p>
+<p>ではまず、データの欠損値などの下処理や、逆転項目の逆転を行います。データの処理などには、<kbd>tidyverse</kbd>の<kbd>mutate</kbd>などを使ってご自身で行ってみてください。</p>
+<p>では、まずCronbach \alphaを算出するために、<kbd>psych</kbd>のパッケージを読み取ってください。まだ入れていないのであれば、インストールしてください。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">library</span><span class="p">(</span><span class="s">&#34;psych&#34;</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>今回は、例えば、<kbd>sfmhpeac</kbd>, <kbd>sfmhengy</kbd>, <kbd>sfmhdprs</kbd>の三つの変数を使って、合成変数を作成したいとしましょう。データの下処理が完了しましたら、この三つのデータが含まれるサブセットを作ります。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-r" data-lang="r"><span class="c1">#やり方１  </span>
+<span class="n">a1</span> <span class="o">&lt;-</span> <span class="nf">c</span><span class="p">(</span><span class="s">&#34;sfmhpeac&#34;</span><span class="p">,</span> <span class="s">&#34;sfmhengy&#34;</span><span class="p">,</span> <span class="s">&#34;sfmhdprs&#34;</span><span class="p">)</span>
+<span class="n">a11</span> <span class="o">&lt;-</span> <span class="n">jgss2012[a1]</span>　　
+
+<span class="c1">#やり方２</span>
+<span class="n">a11</span> <span class="o">&lt;-</span> <span class="nf">subset</span><span class="p">(</span><span class="n">jgss2012</span><span class="p">,</span> <span class="n">select</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="n">sfmhpeac</span><span class="p">,</span> <span class="n">sfmhengy</span><span class="p">,</span> <span class="n">sfmhdprs</span><span class="p">))</span>  
+</code></pre></td></tr></table>
+</div>
+</div><p>作成できたら、右のデータの部分に、a11という三つの変数があるデータセットが作成されているはずです。</p>
+<p>サブセットができたら、<kbd>alpha</kbd>という関数を使って、Cronbach \alphaを出してみましょう。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">alpha</span><span class="p">(</span><span class="n">a11</span><span class="p">,</span> <span class="n">check.keys</span> <span class="o">=</span> <span class="bp">T</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>Reliability analysis<br>
+Call: alpha(x = a11, check.keys = T) </p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">raw_alpha</th>
+<th style="text-align:center">std.alpha</th>
+<th style="text-align:center">G6(smc)</th>
+<th style="text-align:center">average_r</th>
+<th style="text-align:center">S/N</th>
+<th style="text-align:center">ase</th>
+<th style="text-align:center">mean</th>
+<th style="text-align:center">sd</th>
+<th style="text-align:center">median_r</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">0.69</td>
+<td style="text-align:center">0.69</td>
+<td style="text-align:center">0.61</td>
+<td style="text-align:center">0.42</td>
+<td style="text-align:center">2.2</td>
+<td style="text-align:center">0.008</td>
+<td style="text-align:center">3.4</td>
+<td style="text-align:center">0.75</td>
+<td style="text-align:center">0.45</td>
+</tr>
+</tbody>
+</table>
+<p>Reliability if an item is dropped: </p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"></th>
+<th style="text-align:center">raw_alpha</th>
+<th style="text-align:center">std.alpha</th>
+<th style="text-align:center">G6(smc)</th>
+<th style="text-align:center">average_r</th>
+<th style="text-align:center">S/N</th>
+<th style="text-align:center">ase</th>
+<th style="text-align:center">mean</th>
+<th style="text-align:center">sd</th>
+<th style="text-align:center">median_r</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">sfmhpeac</td>
+<td style="text-align:center">0.49</td>
+<td style="text-align:center">0.49</td>
+<td style="text-align:center">0.33</td>
+<td style="text-align:center">0.33</td>
+<td style="text-align:center">0.97</td>
+<td style="text-align:center">0.0149</td>
+<td style="text-align:center">NA</td>
+<td style="text-align:center">0.33</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:center">sfmhengy</td>
+<td style="text-align:center">0.62</td>
+<td style="text-align:center">0.62</td>
+<td style="text-align:center">0.45</td>
+<td style="text-align:center">0.45</td>
+<td style="text-align:center">1.63</td>
+<td style="text-align:center">0.0111</td>
+<td style="text-align:center">NA</td>
+<td style="text-align:center">0.45</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:center">sfmhdprs-</td>
+<td style="text-align:center">0.67</td>
+<td style="text-align:center">0.67</td>
+<td style="text-align:center">0.50</td>
+<td style="text-align:center">0.50</td>
+<td style="text-align:center">1.99</td>
+<td style="text-align:center">0.0098</td>
+<td style="text-align:center">NA</td>
+<td style="text-align:center">0.50</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+<p>以上のような結果が返ってきます（一部省略）。ここでは、たまにしたのような赤い警告が出てくる場合があります。</p>
+<blockquote>
+<p>警告メッセージ:<br>
+alpha(a11, check.keys = T) で:<br>
+Some items were negatively correlated with total scale and were automatically reversed.<br>
+This is indicated by a negative sign for the variable name.</p>
+</blockquote>
+<p>これは、逆転項目が逆転していないよという提示で、上の出力された<kbd>Reliability if an item is dropped</kbd>の部分をみてみれば、最後の変数名に**-**がついていることがわかります。これは、この変数が逆転していないよ〜というリマインドです。これができてから、変数の逆転作業を行いましょう。</p>
+<p>ただし、<kbd>pysch</kbd>パッケージのすごい点として、逆転項目を逆転作業していなくても、Cronbach \alphaを算出する際には、自動的に逆転してくれます。そのため、返ってきたCronbach \alphaの数値は、信頼できるものとしても良いです。データを判断する時には、最初の返ってきた行をみてみましょう。</p>
+<blockquote>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">raw_alpha</th>
+<th style="text-align:center">std.alpha</th>
+<th style="text-align:center">G6(smc)</th>
+<th style="text-align:center">average_r</th>
+<th style="text-align:center">S/N</th>
+<th style="text-align:center">ase</th>
+<th style="text-align:center">mean</th>
+<th style="text-align:center">sd</th>
+<th style="text-align:center">median_r</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">0.69</td>
+<td style="text-align:center">0.69</td>
+<td style="text-align:center">0.61</td>
+<td style="text-align:center">0.42</td>
+<td style="text-align:center">2.2</td>
+<td style="text-align:center">0.008</td>
+<td style="text-align:center">3.4</td>
+<td style="text-align:center">0.75</td>
+<td style="text-align:center">0.45</td>
+</tr>
+<tr>
+<td style="text-align:center">ここの項目について、それぞれの意味は以下の通りです。</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:center">raw_alpha</td>
+<td style="text-align:center">std.alpha</td>
+<td style="text-align:center">G6(smc)</td>
+<td style="text-align:center">average_r</td>
+<td style="text-align:center">ase</td>
+<td style="text-align:center">mean</td>
+<td style="text-align:center">sd</td>
+<td style="text-align:center">median_r</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:center">:&ndash;:</td>
+<td style="text-align:center">:&ndash;:</td>
+<td style="text-align:center">:&ndash;:</td>
+<td style="text-align:center">:&ndash;:</td>
+<td style="text-align:center">:&ndash;:</td>
+<td style="text-align:center">:&ndash;:</td>
+<td style="text-align:center">:&ndash;:</td>
+<td style="text-align:center">:&ndash;:</td>
+<td style="text-align:center">:&ndash;:</td>
+</tr>
+<tr>
+<td style="text-align:center">\alpha係数</td>
+<td style="text-align:center">標準化された\alpha係数</td>
+<td style="text-align:center">ガットマンのラムダ6</td>
+<td style="text-align:center">項目間相関の平均値</td>
+<td style="text-align:center">\alphaの標準誤差</td>
+<td style="text-align:center">平均</td>
+<td style="text-align:center">標準偏差</td>
+<td style="text-align:center">項目間相関の中位数</td>
+<td></td>
+</tr>
+<tr>
+<td style="text-align:center">とりあえず、最初の<strong>raw_alpha</strong>をみて判断するのが良いでしょう。ここでは.69で、あまり高くはなかったですが、無理やり合成変数を作るというと作れるものでしょう。</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+<p>また、この下にある<kbd>Reliability if an item is dropped</kbd>には、特定の変数を切り捨てる時に、\alpha係数がどのように変化するのかを出しています。これを参照して、どのように合成変数を作成した方が良いかを判断する必要があります。</p>
+<p>合成変数の作成にもいろんな方法がありますが、以下には一つ見本として出します。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-r" data-lang="r"><span class="n">jgss2012</span> <span class="o">&lt;-</span> <span class="n">jgss2012</span> <span class="o">%&gt;%</span> 
+  <span class="nf">mutate</span><span class="p">(</span><span class="n">mentalhealth</span> <span class="o">=</span> <span class="p">(</span><span class="n">sfmhpeac</span> <span class="o">+</span> <span class="n">sfmhengy</span> <span class="o">+</span> <span class="n">sfmhdprs</span><span class="p">)</span><span class="o">/</span><span class="m">3</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>以上で、今回の内容でした。<br>
+次回は、引き続き、データの処理によく使われる<kbd>dyplr</kbd>のパッケージの使い方について書きたいと思います。</p>
+<p>
+    <div class="read-more">
+      <p><a href="https://liaanghao.com/rtutorial/bfb03/" class="archive-post-link">(&rarr; Permanent link)</a></p>
+    </div>
+  </article>
 
     <article class="post">
       <span class="archive-post-time">
@@ -375,8 +733,8 @@
 
 </code></pre></td></tr></table>
 </div>
-</div><p>また、もっと簡潔な方法について、slackをご参照ください（次回追加）。</p>
-<p>では、今日はここまで。</p>
+</div><p>また、もっと簡潔な方法について、slackをご参照ください（次回追加）。
+では、今日はここまで。</p>
 <p>
     <div class="read-more">
       <p><a href="https://liaanghao.com/rtutorial/bfb02/" class="archive-post-link">(&rarr; Permanent link)</a></p>
