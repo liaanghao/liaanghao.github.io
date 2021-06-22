@@ -16,7 +16,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="Hao Liang" /><meta name="description" content="Introduction 今日は、前回残っていたファクター変数の作成のもう一つの手法について説明した上、合成変数の作成と信頼度について取り上げます。実際には、因子分" /><meta name="keywords" content="Liang Hao, Hao Liang, Hao Liang Sociology, homepage, 梁昊, りょう, こう, 一橋, ひとつばし, 社会学, しゃかいがく, 都市社会学, とし" />
+<meta name="author" content="Hao Liang" /><meta name="description" content="Introduction 今日は、前回扱った文字型変数の作成のもう一つの手法について説明します。また、合成変数の作成と信頼度について取り上げます。実際には、因子分析" /><meta name="keywords" content="Liang Hao, Hao Liang, Hao Liang Sociology, homepage, 梁昊, りょう, こう, 一橋, ひとつばし, 社会学, しゃかいがく, 都市社会学, とし" />
 
 
 
@@ -40,23 +40,23 @@
 
 
 <meta property="og:title" content="Beginner for Beginners 03: データ作成と合成変数" />
-<meta property="og:description" content="Introduction 今日は、前回残っていたファクター変数の作成のもう一つの手法について説明した上、合成変数の作成と信頼度について取り上げます。実際には、因子分" />
+<meta property="og:description" content="Introduction 今日は、前回扱った文字型変数の作成のもう一つの手法について説明します。また、合成変数の作成と信頼度について取り上げます。実際には、因子分析" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://liaanghao.com/rtutorial/bfb03/" />
 <meta property="article:published_time" content="2021-06-03T16:01:23+08:00" />
-<meta property="article:modified_time" content="2021-06-03T18:01:23+08:00" />
+<meta property="article:modified_time" content="2021-06-22T21:40:23+08:00" />
 <meta itemprop="name" content="Beginner for Beginners 03: データ作成と合成変数">
-<meta itemprop="description" content="Introduction 今日は、前回残っていたファクター変数の作成のもう一つの手法について説明した上、合成変数の作成と信頼度について取り上げます。実際には、因子分">
+<meta itemprop="description" content="Introduction 今日は、前回扱った文字型変数の作成のもう一つの手法について説明します。また、合成変数の作成と信頼度について取り上げます。実際には、因子分析">
 <meta itemprop="datePublished" content="2021-06-03T16:01:23+08:00" />
-<meta itemprop="dateModified" content="2021-06-03T18:01:23+08:00" />
-<meta itemprop="wordCount" content="2253">
+<meta itemprop="dateModified" content="2021-06-22T21:40:23+08:00" />
+<meta itemprop="wordCount" content="2339">
 
 
 
 <meta itemprop="keywords" content="R,basics,deal with variables," />
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Beginner for Beginners 03: データ作成と合成変数"/>
-<meta name="twitter:description" content="Introduction 今日は、前回残っていたファクター変数の作成のもう一つの手法について説明した上、合成変数の作成と信頼度について取り上げます。実際には、因子分"/>
+<meta name="twitter:description" content="Introduction 今日は、前回扱った文字型変数の作成のもう一つの手法について説明します。また、合成変数の作成と信頼度について取り上げます。実際には、因子分析"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -132,9 +132,9 @@
     
     <div class="post-content">
       <h2 id="introduction">Introduction</h2>
-<p>　今日は、<a href="https://liaanghao.com/rtutorial/bfb02">前回</a>残っていたファクター変数の作成のもう一つの手法について説明した上、合成変数の作成と信頼度について取り上げます。実際には、因子分析などを経て、合成変数を作成することは普通ではありますが、とりあえず、データの作成の部分で合成変数の作成の仕方、信頼性の判断の仕方について書きます。</p>
-<h2 id="データの作成">データの作成</h2>
-<p>前回で、<kbd>|</kbd>を使ったデータの作成の仕方について、学歴を例として以下のように書きました。</p>
+<p>　今日は、<a href="https://liaanghao.com/rtutorial/bfb02">前回</a>扱った文字型変数の作成のもう一つの手法について説明します。また、合成変数の作成と信頼度について取り上げます。実際には、因子分析などを経て、合成変数を作成することが一般的ではありますが、今回の事例のように、データを直接足し合わせて合成変数を作成することもできます。その際には、信頼性の判断がカギとなります。</p>
+<h2 id="複数条件に基づいた変数の作成">複数条件に基づいた変数の作成</h2>
+<p>前回で、<kbd>|</kbd>を使ったデータの作成の仕方について、学歴を例として以下のように書きました。　　</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
@@ -201,7 +201,7 @@
 <span class="n">jgss2012</span><span class="o">$</span><span class="n">educ[jgss2012</span><span class="o">$</span><span class="n">educ</span> <span class="o">%in%</span> <span class="n">na]</span> <span class="o">&lt;-</span> <span class="kc">NA</span>  
 </code></pre></td></tr></table>
 </div>
-</div><p>このようなやり方でもできます。実行したら、データの確認をしましょう。</p>
+</div><p>実行したら、データの確認をしましょう。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
@@ -233,9 +233,9 @@
 </blockquote>
 <p>以上、<kbd>%in%</kbd>の使い方でした（slack参照）。</p>
 <h2 id="合成変数と信頼性">合成変数と信頼性</h2>
-<p><strong>JGSS</strong>のような社会調査を行う場合、特定の一つの測定したい尺度に、複数の質問項目を設けることがある。このような複数の項目を分析する際に、一つの尺度に統合してからの方が分析しやすく、結果の解釈もしやすくなるかと思います。ここでは、このような変数を合成変数としています。基本的に合成変数を作る際には、質問項目の結果の和を項目数で割リます。</p>
-<p>ここで考えないといけないことは、このいくつかの質問項目は、本当に同じ尺度について聞いているのかという項目の内部統合性の問題があります。そこで、Cronbach α で判断します。このαは0から1までの値をとり、値が大きければ大きいほど、データ内部の統合性が良いという意味です。これに関する具体的な説明を省きますが、出し方と判断の仕方について説明します。</p>
-<p>ではまず、データの欠損値などの下処理や、逆転項目の逆転を行います。データの処理などには、<kbd>tidyverse</kbd>の<kbd>mutate</kbd>などを使ってご自身で行ってみてください。</p>
+<p><strong>JGSS</strong>のような社会調査を行う場合、ある構成概念を測定するために、複数の質問項目を設けることがあります。このような複数の項目を分析する際に、一つの尺度に統合してからの方が分析しやすく、結果の解釈もしやすくなります。このような変数を合成変数と呼びます。基本的に合成変数を作る際には、質問項目の結果の和を単純に足し上げるか、合計を項目数で割リます。</p>
+<p>ここで考えないといけないことは、このいくつかの質問項目は、本当に同じ尺度について聞いているのかという項目の内部の一貫性の問題があります。これを統計的には、Cronbach α で判断します。このαは0から1までの値をとり、値が大きければ大きいほど、データ内部の内的一貫性が高いという意味です。これに関する具体的な説明を省きますが、出し方と判断の仕方について説明します。</p>
+<p>ではまず、データの欠損値などの下処理や、逆転項目の処理を行います。データの処理などには、<kbd>tidyverse</kbd>の<kbd>mutate</kbd>などを使ってご自身で行ってみてください。</p>
 <p>では、まずCronbach αを算出するために、<kbd>psych</kbd>のパッケージを読み取ってください。まだ入れていないのであれば、インストールしてください。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -245,7 +245,7 @@
 <pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">library</span><span class="p">(</span><span class="s">&#34;psych&#34;</span><span class="p">)</span>
 </code></pre></td></tr></table>
 </div>
-</div><p>今回は、例えば、<kbd>sfmhpeac</kbd>, <kbd>sfmhengy</kbd>, <kbd>sfmhdprs</kbd>の三つの変数を使って、合成変数を作成したいとしましょう。データの下処理が完了しましたら、この三つのデータが含まれるサブセットを作ります。</p>
+</div><p>今回は、例えば、<kbd>sfmhpeac</kbd>, <kbd>sfmhengy</kbd>, <kbd>sfmhdprs</kbd>の三つの変数を使って、合成変数を作成するとしましょう。データの下処理が完了したら、この三つのデータのみが含まれるサブセット・データを作ります。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
@@ -361,15 +361,15 @@ Call: alpha(x = a11, check.keys = T) </p>
 </tbody>
 </table>
 </blockquote>
-<p>以上のような結果が返ってきます（一部省略）。ここでは、たまにしたのような赤い警告が出てくる場合があります。</p>
+<p>以上のような結果が返ってきます（一部省略）。ここでは、たまに下記のような警告が出てくる場合があります。</p>
 <blockquote>
 <p>警告メッセージ:<br>
 alpha(a11, check.keys = T) で:<br>
 Some items were negatively correlated with total scale and were automatically reversed.<br>
 This is indicated by a negative sign for the variable name.</p>
 </blockquote>
-<p>これは、逆転項目が逆転していないよという提示で、上の出力された<kbd>Reliability if an item is dropped</kbd>の部分をみてみれば、最後の変数名に**-**がついていることがわかります。これは、この変数が逆転していないよ〜というリマインドです。これができてから、変数の逆転作業を行いましょう。</p>
-<p>ただし、<kbd>pysch</kbd>パッケージのすごい点として、逆転項目を逆転作業していなくても、Cronbach αを算出する際には、自動的に逆転してくれます。そのため、返ってきたCronbach αの数値は、信頼できるものとしても良いです。データを判断する時には、最初の返ってきた行をみてみましょう。</p>
+<p>これは、逆転項目が反転されていないことを警告するものです。上の出力された<kbd>Reliability if an item is dropped</kbd>の部分をみてみれば、最後の変数名に**-**がついていることがわかります。これは、この変数が逆転していないことを示します。したがって、この変数の順序を逆にしましょう。</p>
+<p>ただし、<kbd>pysch</kbd>パッケージのすごい点として、逆転項目を逆転作業していなくても、Cronbach αを算出する際には、自動的に逆転してくれます。そのため、返ってきたCronbach αの数値は、そのまま扱っても良いです。データを判断する時には、最初の返ってきた行をみてみましょう。</p>
 <blockquote>
 <table>
 <thead>
@@ -431,9 +431,9 @@ This is indicated by a negative sign for the variable name.</p>
 </tbody>
 </table>
 </blockquote>
-<p>とりあえず、最初の<strong>raw_alpha</strong>をみて判断するのが良いでしょう。ここでは.69で、あまり高くはなかったですが、無理やり合成変数を作るというと作れるものでしょう。</p>
-<p>また、この下にある<kbd>Reliability if an item is dropped</kbd>には、特定の変数を切り捨てる時に、α係数がどのように変化するのかを出しています。これを参照して、どのように合成変数を作成した方が良いかを判断する必要があります。</p>
-<p>合成変数の作成にもいろんな方法がありますが、以下には一つ見本として出します。</p>
+<p>とりあえず、最初の<strong>raw_alpha</strong>をみて判断するのが良いでしょう。ここでは.69で、あまり高くはなかったですが、無理やり合成変数を作るというと作れるものでしょう。一般的には、.70以上で一貫性の高い尺度とみなされます。</p>
+<p>また、この下にある<kbd>Reliability if an item is dropped</kbd>には、特定の変数を合成変数を作成する候補から落とした場合に、α係数がどのように変化するのかを算出しています。これを参照して、どのように合成変数を作成した方が良いかを判断する必要があります。</p>
+<p>合成変数の作成には、実際にはさまざまな方法がありますが、以下は、変数の総和を変数数で割ったものです。もっともよく使われる方法です。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1

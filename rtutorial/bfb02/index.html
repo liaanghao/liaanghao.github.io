@@ -16,7 +16,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="Hao Liang" /><meta name="description" content="Introduction 前回では、パッケージの準備、データの読み込み、変数名の変更を行いました。本回では、引き続き、四則演算、変数の作成、合併について取り上げます" /><meta name="keywords" content="Liang Hao, Hao Liang, Hao Liang Sociology, homepage, 梁昊, りょう, こう, 一橋, ひとつばし, 社会学, しゃかいがく, 都市社会学, とし" />
+<meta name="author" content="Hao Liang" /><meta name="description" content="Introduction 前回では、本回は、引き続き、四則演算、変数の作成、合成について取り上げます。ここでは、すぐに使える、かつ私がいつも使っている手法を中心に紹" /><meta name="keywords" content="Liang Hao, Hao Liang, Hao Liang Sociology, homepage, 梁昊, りょう, こう, 一橋, ひとつばし, 社会学, しゃかいがく, 都市社会学, とし" />
 
 
 
@@ -40,23 +40,23 @@
 
 
 <meta property="og:title" content="Beginner for Beginners 02: データと変数作成" />
-<meta property="og:description" content="Introduction 前回では、パッケージの準備、データの読み込み、変数名の変更を行いました。本回では、引き続き、四則演算、変数の作成、合併について取り上げます" />
+<meta property="og:description" content="Introduction 前回では、本回は、引き続き、四則演算、変数の作成、合成について取り上げます。ここでは、すぐに使える、かつ私がいつも使っている手法を中心に紹" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://liaanghao.com/rtutorial/bfb02/" />
 <meta property="article:published_time" content="2021-05-20T16:01:23+08:00" />
-<meta property="article:modified_time" content="2021-05-20T18:01:23+08:00" />
+<meta property="article:modified_time" content="2021-06-22T21:31:23+08:00" />
 <meta itemprop="name" content="Beginner for Beginners 02: データと変数作成">
-<meta itemprop="description" content="Introduction 前回では、パッケージの準備、データの読み込み、変数名の変更を行いました。本回では、引き続き、四則演算、変数の作成、合併について取り上げます">
+<meta itemprop="description" content="Introduction 前回では、本回は、引き続き、四則演算、変数の作成、合成について取り上げます。ここでは、すぐに使える、かつ私がいつも使っている手法を中心に紹">
 <meta itemprop="datePublished" content="2021-05-20T16:01:23+08:00" />
-<meta itemprop="dateModified" content="2021-05-20T18:01:23+08:00" />
-<meta itemprop="wordCount" content="2166">
+<meta itemprop="dateModified" content="2021-06-22T21:31:23+08:00" />
+<meta itemprop="wordCount" content="2198">
 
 
 
 <meta itemprop="keywords" content="R,basics,deal with variables," />
 <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Beginner for Beginners 02: データと変数作成"/>
-<meta name="twitter:description" content="Introduction 前回では、パッケージの準備、データの読み込み、変数名の変更を行いました。本回では、引き続き、四則演算、変数の作成、合併について取り上げます"/>
+<meta name="twitter:description" content="Introduction 前回では、本回は、引き続き、四則演算、変数の作成、合成について取り上げます。ここでは、すぐに使える、かつ私がいつも使っている手法を中心に紹"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -132,9 +132,9 @@
     
     <div class="post-content">
       <h2 id="introduction">Introduction</h2>
-<p>　<a href="https://liaanghao.com/rtutorial/bfb01">前回</a>では、パッケージの準備、データの読み込み、変数名の変更を行いました。本回では、引き続き、四則演算、変数の作成、合併について取り上げます。ここでは、すぐに使える、かつ私がいつも使っている手法を中心に紹介している予定ですが、ここで紹介されたもの以外にも、多様な手法があります。基本的には<kbd>tidyverse</kbd>のパッケージによる処理方法をご紹介します。</p>
+<p>　<a href="https://liaanghao.com/rtutorial/bfb01">前回</a>では、本回は、引き続き、四則演算、変数の作成、合成について取り上げます。ここでは、すぐに使える、かつ私がいつも使っている手法を中心に紹介していますが、ここで紹介されたもの以外にも、多様な手法があります。以下では、基本的に<kbd>tidyverse</kbd>のパッケージによる処理方法を紹介します。</p>
 <h2 id="データの準備">データの準備</h2>
-<p>　では、前回で用意できたプロジェクトを開けて、libraryを読み込んでください。</p>
+<p>　では、前回で用意したプロジェクトを開けて、libraryを読み込んでください。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
@@ -143,7 +143,7 @@
 <pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">library</span><span class="p">(</span><span class="s">&#34;tidyverse&#34;</span><span class="p">)</span>
 </code></pre></td></tr></table>
 </div>
-</div><p>　プロジェクトには、jgss2012のデータが確実に入ってあることを確認しましょう。</p>
+</div><p>　プロジェクトには、jgss2012データがプロジェクトファイル上に確実に読み込まれているかを確認しましょう。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
@@ -152,10 +152,10 @@
 <pre class="chroma"><code class="language-r" data-lang="r"><span class="nf">view</span><span class="p">(</span><span class="n">jgss2012</span><span class="p">)</span>
 </code></pre></td></tr></table>
 </div>
-</div><p>以上のコードを走らせることで、データセットの新しいウィンドが自動的に開かれ、データの中身について確認できます。なんとなくデータがちゃんと入ってあることを確認できたら、スクリプトに戻って、今回の内容をやってみましょう。<br>
-または、R Studioの右にあるデータ欄から、jgss2012をクリックして、データセットを確認することもできます。</p>
+</div><p>　以上のコードを走らせることで、データセットの新しいウィンドウが新しく開き、データの中身を確認することができます。データがちゃんと入ってあることを確認したら、スクリプトに戻り、今回の内容をやってみましょう。
+　なお、R Studioの右にあるデータ欄から、jgss2012をクリックして、データセットを確認することもできます。</p>
 <h2 id="四則演算">四則演算</h2>
-<p>Rでは、もちろん四则运算ができます。数値による四则运算はもちろん、変数間の四则运算もできます。四则运算によって、新しい合成変数などを作成することができます。<br>
+<p>　Rでは、もちろん四則演算ができます。数値による四則演算はもちろん、変数でも可能です。四則演算によって、新しい合成変数を作成することもできます。<br>
 例えば、<kbd>dobyear</kbd>という出生年度から年齢を算出したい場合は、</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -203,9 +203,9 @@
   <span class="nf">table</span><span class="p">()</span>
 </code></pre></td></tr></table>
 </div>
-</div><p>以上の三つの方法が少なくともデータがきちんと入っているかを確認することができる。以上のいずれかで確認したら良いと思います。</p>
+</div><p>以上の三つの方法のいずれでもデータが入っているかを確認することができます。そのため、実際には以上のいずれかの方法を用いればよいでしょう。</p>
 <h2 id="変数の作成">変数の作成</h2>
-<p>これから実際の分析を行う前には、欠損値などの前処理をする必要ができています。<strong>JGSS</strong>のような社会調査データでは、基本的に欠損値や「わからない」の答えを「999」などの数値で入力されるケースがほとんどである。この場合には、コードブックを参照しながら、データの前処理を行いましょう。</p>
+<p>実際の分析を行う際には、欠損値の前処理をする必要ができています。<strong>JGSS</strong>のような社会調査データでは、基本的に欠損値や「わからない」という回答を「999」などの数値で入力するケースがほとんどです（もちろん場合によって違いますので、要確認です）。この場合には、コードブックを参照しながら、データの前処理を行いましょう。</p>
 <h3 id="欠損値の処理">欠損値の処理</h3>
 <p>欠損値の処理には、多くの方法がありますが、ここで<kbd>dyplr</kbd>を使用する方法と、一般的な方法(?)の二種類を紹介します。<br>
 まず、標準関数を使用すると、以下のコードを使用します。</p>
@@ -219,7 +219,7 @@
 　　　　　　　　　<span class="o">|</span> <span class="n">jgss2012</span><span class="o">$</span><span class="n">xjobhwk</span> <span class="o">==</span> <span class="m">999</span><span class="n">]</span> <span class="o">&lt;-</span> <span class="kc">NA</span>　<span class="c1"># |はあるいはの意味</span>
 </code></pre></td></tr></table>
 </div>
-</div><p>ここでは、888→わからない、999→無回答の二つの欠損値があるので、その二者を同時に処理すると、あるいはの意味で、<kbd>|</kbd>を入れます。このコードは、jgss2012のデータセットの中の<kbd>xjobhwk</kbd>という変数のなかの、888と999を欠損値<kbd>NA</kbd>として処理してください、ということです。</p>
+</div><p>ここでは、888→わからない、999→無回答の二つの欠損値があるので、その二者を同時に処理するために、「あるいは」の意味で、<kbd>|</kbd>を入れます。このコードは、jgss2012のデータセットの中の<kbd>xjobhwk</kbd>という変数のなかの、888と999を、Ｒで用いられる欠損値<kbd>NA</kbd>に置き換えます。</p>
 <p>また、<kbd>dyplr</kbd>を使用する場合、<kbd>na_if</kbd>の関数を使用します。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -265,10 +265,10 @@
 </tbody>
 </table>
 </blockquote>
-<p>ここでは、99という欠損値が存在する変数<kbd>xliveyr</kbd>を、<kbd>mutate</kbd>関数で処理した。意味としては、jgss2012のデータセットの中の<kbd>xliveyr</kbd>という変数のなかの、全ての99を欠損値として変換してください。という意味です。</p>
+<p>ここでは、99という欠損値が存在する変数<kbd>xliveyr</kbd>を、<kbd>mutate</kbd>関数で処理しました。意味としては、jgss2012のデータセットの中の<kbd>xliveyr</kbd>という変数のなかの、全ての99を欠損値<kbd>NA</kbd>として変換するという意味です。</p>
 <h3 id="変数の変換">変数の変換</h3>
-<p>以上では、欠損値の処理方法について紹介しました。これからは、変数の変換とりわけ値の再付与について取り上げます。<br>
-</space>JGSS2012の性別を例にします。性別では１→男性、２→女性として、データセットに入っていることをまず確認してみましょう。</p>
+<p>以上では、欠損値の処理方法について紹介しました。ここからは、変数の変換とりわけ値の再付与について取り上げます。<br>
+</space>JGSS2012の性別を例にします。性別が１→男性、２→女性として、データセットに入っていることをまず確認してみましょう。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
@@ -309,7 +309,8 @@
 </code></pre></td></tr></table>
 </div>
 </div><p>ここでも、<kbd>dyplr</kbd>パッケージの中の<kbd>mutate</kbd>関数を使用しています。今回は、<strong>na_if</strong>という欠損値を処理する関数ではなく、<strong>case_when</strong>という条件文を使用します。<br>
-ここでは、JGSS2012のデータセットのにあらため<kbd>male_dummy</kbd>という変数を作って、<kbd>sexa</kbd>の変数の中の1を1のままとして、2を0に変換する意味です。また、この変換は、文字型でも使用できます。</p>
+ここでは、JGSS2012のデータセットのにあらため<kbd>male_dummy</kbd>という変数を作って、<kbd>sexa</kbd>の変数の中の1を1のままとして、2を0に変換する意味です。また、この変換は、文字型でも使用できます。<br>
+　実際の統計的分析上では、独立変数として、性別を投入すると、自動的にダミー変数として変換してくれます。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
@@ -343,7 +344,7 @@
 </table>
 </blockquote>
 <h2 id="変数の作成-1">変数の作成</h2>
-<p>それから、データセットの中から、条件に相応しい項目だけを抽出して新しい変数を生成したりすることができます。<br>
+<p>データセットの中から、条件に相応しい項目だけを抽出して新しい変数を作成することもできます。
 例えば、男性で、65歳以上のサンプルを抽出して、OBとして新しいダミー変数を作成したい場合は、以下のコマンドでできます。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -353,7 +354,7 @@
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-r" data-lang="r"><span class="n">jgss2012</span><span class="o">$</span><span class="n">ob</span> <span class="o">&lt;-</span> <span class="kc">NA</span>
+<pre class="chroma"><code class="language-r" data-lang="r"><span class="n">jgss2012</span><span class="o">$</span><span class="n">ob</span> <span class="o">&lt;-</span> <span class="nf">rep</span><span class="p">(</span><span class="kc">NA</span><span class="p">,</span> <span class="nf">nrow</span><span class="p">(</span><span class="n">jgss2012</span><span class="p">))</span> 
 <span class="n">jgss2012</span><span class="o">$</span><span class="n">ob[jgss2012</span><span class="o">$</span><span class="n">male_dummy</span> <span class="o">==</span> <span class="m">1</span> <span class="o">&amp;</span> <span class="n">jgss2012</span><span class="o">$</span><span class="n">ageb</span> <span class="o">&gt;</span> <span class="m">65</span><span class="n">]</span> <span class="o">&lt;-</span> <span class="m">1</span>
 <span class="n">jgss2012</span><span class="o">$</span><span class="n">ob</span> <span class="o">%&gt;%</span> 
   <span class="nf">table</span><span class="p">()</span>
