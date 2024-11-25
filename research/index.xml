@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Hao Liang</title>
+    <link>https://liaanghao.com/research/</link>
+    <description>Recent content on Hao Liang</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>&amp;copy; Hao Liang, 2019 - 2024</copyright>
+    <lastBuildDate>Sat, 23 Nov 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://liaanghao.com/research/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Chinese immigrants move back to Chinatowns for coethnic preferences.</title>
+      <link>https://liaanghao.com/research/resimobi/</link>
+      <pubDate>Sat, 23 Nov 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://liaanghao.com/research/resimobi/</guid>
+      <description>Using sequence analysis, this paper finds that residential mobility into and out of ethnic neighborhoods is associated with varying levels of socioeconomic resources and coethnic preferences.</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://liaanghao.com/research/resimobi/featured.png" />
+    </item>
+    
+    <item>
+      <title>Locally educated immigrant labor does not necessarily earn more in Japan.</title>
+      <link>https://liaanghao.com/research/whitecolar/</link>
+      <pubDate>Thu, 17 Oct 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://liaanghao.com/research/whitecolar/</guid>
+      <description>This paper shows that for immigrant labor, education in Japan does not lead to higher income levels after adjusting for various confounders, including university rankings and majors.</description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="https://liaanghao.com/research/whitecolar/featured.png" />
+    </item>
+    
+  </channel>
+</rss>
