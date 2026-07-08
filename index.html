@@ -473,41 +473,95 @@ class="flex flex-col h-screen px-6 m-auto text-lg leading-7 max-w-7xl bg-neutral
     </div>
 </article>
 
+<style>
+  .hao-home-grid {
+    display: grid;
+    grid-template-columns: 40% minmax(0, 1fr);
+    column-gap: 4rem;
+    align-items: stretch;
+  }
+
+  .hao-home-left {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; 
+    text-align: center;
+    width: 100%;
+    min-height: 650px;
+  }
+
+  .hao-home-portrait {
+    width: 100%;
+    max-width: 330px;
+    height: auto;
+    border-radius: 0.75rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .hao-home-right {
+    min-width: 0;
+    max-width: 760px;
+  }
+
+  @media (max-width: 1024px) {
+    .hao-home-grid {
+      display: block;
+    }
+
+    .hao-home-left {
+      min-height: auto;
+      margin-bottom: 2rem;
+    }
+
+    .hao-home-right {
+      max-width: 100%;
+    }
+
+    .hao-home-portrait {
+      max-width: 300px;
+    }
+  }
+</style>
+
 <div class="relative pt-16 pb-24" style="font-family: 'Montserrat', sans-serif;">
     <div aria-hidden="true" class="absolute inset-x-0 top-0 h-36 bg-gradient-to-b from-gray-100"></div>
-    <div class="relative">
-        <div class="lg:mx-auto lg:grid lg:max-w-7xl lg:grid-flow-col-dense lg:grid-cols-10 lg:gap-24 lg:px-8">
-            
-            
-            <div class="lg:col-span-2 mx-auto w-full px-4 sm:px-6 lg:mx-0 lg:px-0 flex items-center justify-center lg:h-full">
-                <div class="flex flex-col items-center text-center">
-                    <div class="lg:relative lg:m-0 lg:px-0" style="width:100%">
-                        
-                        
-                        
-                        
-                        <img class="w-full max-w-[360px] h-auto rounded-xl shadow-2xl mb-2 mx-auto"
-     src="/position.png"
-     alt="Portrait"
-     loading="lazy">
-                        
-                    </div>
-                    <div class="flex flex-col items-center justify-center text-center mt-4">
-                        <h1 class="text-4xl font-bold mb-2">Hao Liang</h1>
-                        <p class="text-xl">Ph.D. candidate at <br>
-                            <a href="https://sociology.cornell.edu/">Department of Sociology </a><br>
-                            Cornell University</p>
-                    </div>
-                    <div class="mt-1 text-2xl">
-                        
 
-                    </div>
+    <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="hao-home-grid">
+
+            
+            <div class="hao-home-left">
+                <div>
+                    
+                    
+                    
+                    
+                    <img
+                        class="hao-home-portrait shadow-2xl"
+                        src="/position.png"
+                        alt="Portrait"
+                        loading="lazy">
+                    
+                </div>
+
+                <div class="mt-4">
+                    <h1 class="text-3xl font-bold mb-2">Hao Liang</h1>
+                    <p class="text-lg leading-relaxed">Ph.D. candidate at <br>
+                        <a href="https://sociology.cornell.edu/">Department of Sociology</a><br>
+                        Cornell University
+                    </p>
+                </div>
+
+                <div class="mt-1 text-2xl">
+                    
+
                 </div>
             </div>
 
-           
-            <div class="lg:col-span-8 mt-5 sm:mt-10 lg:mt-8 mx-auto w-full px-4 sm:px-6 lg:mx-0 lg:py-14 lg:px-0">
-                <article class="prose dark:prose-invert max-w-full">
+            
+            <div class="hao-home-right mt-8 lg:mt-14">
+                <article class="prose dark:prose-invert">
                     
                     <section>
 
@@ -542,6 +596,7 @@ class="flex flex-col h-screen px-6 m-auto text-lg leading-7 max-w-7xl bg-neutral
 </section>
                 </article>
             </div>
+
         </div>
     </div>
 </div>
